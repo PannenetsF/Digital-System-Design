@@ -1,0 +1,126 @@
+\ifx\mainclass\undefined
+\documentclass[cn,11pt,chinese,black,simple]{../elegantbook}
+\input{../needed.tex}
+\begin{document}
+\fi 
+\def\chapname{01digitalsys}
+
+% Start Here
+\chapter{概述}
+
+\section{数字系统概述}
+
+数字系统涵盖方面广，
+
+\begin{itemize}
+    \item 处理器
+    \item 存储器
+    \item SoC： System on Chip
+\end{itemize}
+
+数字系统可以看作是一个微处理器外加一个交互接口。一般来说，数字系统包括算数逻辑单元，存储单元以及控制单元，硅集成后就可以成为 IC 。
+
+
+
+半导体产品包括：
+
+\begin{itemize}
+    \item 光电器件
+    \item 传感器
+    \item 分立器件
+    \item 集成电路
+\end{itemize}
+
+\subsection{微处理器}
+
+微处理器几乎是数字系统的核心。
+
+常见的微处理器有中央处理器即 CPU 。其中的控制单元对指令进行处理，使得存储单元以及运算单元与内存进行交互完成工作。通过指令集对底层进行交互。
+
+另一种是图形处理器即 GPU ，控制单元相对较少，但是有更多的细粒度 ALU 以及更大的显存。
+
+还有现场可编程逻辑门阵列即 FPGA ，通过逻辑设计对开关核进行不同的连线，实现不同的逻辑功能。
+
+专用处理器即 ASIC ，为特定的系统的需要而设计，速度快，但是设计成本更高。
+
+其他芯片还有： DSP 数字信号处理器，ISP 图像信号处理器， MCU 微处理器， SoC 系统级芯片或片上系统。
+
+\section{数字逻辑电路}
+
+数字逻辑电路实现了数字信号逻辑运算的电路，实现离散值的逻辑计算。
+
+组合逻辑电路的输入输出字号见没有反馈延时通路，且不含存储单元。
+
+时序逻辑电路由组合电路以及存储单元组成，存在反馈电路。可以分为同步时序电路以及异步时序电路。
+
+最早的逻辑器件有真空电子管以及晶体管。之后出现了金属氧化物半导体场效应管也就是 MOSFET 。
+
+\section{逻辑}
+
+什么是逻辑？可以用 0 与 1 表达逻辑与任务。香农提到，逻辑可以使用逻辑电路实现。通过逻辑器件实现逻辑，综合成逻辑门后设计成逻辑电路最终实现到处理器。
+
+\subsection{数字与模拟信号}
+
+数字信号
+
+\begin{itemize}
+    \item 时域离散
+    \item 值域为悠闲地集合
+    \item 来自物理世界
+    \item 热波动噪声
+\end{itemize}
+
+模拟信号：
+
+\begin{itemize}
+    \item 时域连续
+    \item 值域连续
+    \item 来自布尔相关方程
+    \item 采样噪声
+\end{itemize}
+
+
+由于模拟信号的噪声多且难以消除，存在累积效应，更多采用数字信号。
+
+\subsection{数字信号的获得}
+
+通过采样将模拟信号转换为数字信号，效果与采样频率和采样精度有关。
+
+
+\section{数字电路设计方法学}
+
+\subsection{设计方法论}
+
+存在三个设计域：
+
+\begin{itemize}
+    \item 行为域：Spec, Algorithm, RTL, Bool, Differential Equation.
+    \item 结构域: Transistor, Gate, ALU/MUX/Reg, Processor/Subsystem, CPU/Mem/SoC 
+    \item 几何域: Rectangle Polygon-group, Standard cell, Macro cell, Block/Chip, Chip/Board
+\end{itemize}
+
+\subsection{层次化设计}
+
+自底向上设计（Bottom-Up） ：缺乏全局规划，迭代优化难度大。
+
+自顶向下设计（Top-Down） ： 通过“设计-验证-修改”的反复迭代，最终得到满足性能以及功能要求的结果。
+
+混合设计模式：从上到下设计，从下到上实现。
+
+\subsection{数字系统的实现技术}
+
+按照分类方式分：
+
+\begin{itemize}
+    \item 全定制：搭积木式设计，几乎没有灵活性且成本很高
+    \item 半定制：标准单元式，标准单元库有助于提高布图效率，自动化程度高，设计周期短，ASIC 广泛使用
+    \item 可编程：灵活度高，周期短，上市快，功耗大，成本高，速度慢
+\end{itemize}
+
+\section{数字系统设计自动化}
+% End Here
+
+\let\chapname\undefined
+\ifx\mainclass\undefined
+\end{document}
+\fi 

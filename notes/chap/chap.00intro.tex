@@ -1,0 +1,26 @@
+\ifx\mainclass\undefined
+\documentclass[cn,11pt,chinese,black,simple]{../elegantbook}
+\input{../needed.tex}
+\begin{document}
+\fi 
+\def\chapname{00intro}
+
+% Start Here
+\chapter{导言}
+
+这是一门专业基础课，分为理论以及实践两个部分，分别 32 学时。先修课程包括电子电路，数字集成电路设计， C 语言，后续课程包括集成电路设计实训以及智能芯片设计。
+
+\section{这门课讲什么？}
+
+什么是数字系统以及我们如何使用 Verilog 完成数字电路的设计，并且通过逻辑综合以及物理综合完成最终的布局布线。
+
+了解什么是数字系统并且清楚如何设计一个数字系统，了解 FPGA 的工作原理并使用。
+
+需要熟练完成 Verilog 编写并仿真最终上板子（Altera DE2-115）。
+
+% End Here
+
+\let\chapname\undefined
+\ifx\mainclass\undefined
+\end{document}
+\fi 
