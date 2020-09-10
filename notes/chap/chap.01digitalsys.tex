@@ -118,6 +118,73 @@
 \end{itemize}
 
 \section{数字系统设计自动化}
+
+设计芯片的方法从手工设计、计算机辅助，走向了电子设计自动化（ EDA ）。EDA 以计算机与电子技术为先导，汇集了计算机图形学、拓扑学等知识。
+
+CAD 进行独立的 EDA 使用，辅助版图设计，PCB 设计，电路模拟等。
+
+CAE 实现了设计工作的集成话，原理图输入，逻辑仿真，自动布局，功能模拟以及分析验证可以系统化进行。
+
+EDA 自顶向下的设计可以将经历集中在方案以及架构创新上。
+
+EDA 是集成电路的产业龙头，推动封装测试行业从二维转向三维，实现了 PCB 的板级系统的硅上互联，时间摩尔转向空间摩尔。
+
+分类大致有
+
+\begin{itemize}
+    \item 电子电路设计：HSPICE， SPECTRE
+    \item PCB：Protel
+    \item PLD\footnote{Programmable Logic Device}：Quaturs II，ISE
+    \item IC： ModelSim
+    \item ASIC：Candence，Synopsys，Mentor
+\end{itemize}
+
+
+系统设计流程分为 
+
+\begin{itemize}
+    \item 前端设计
+    \begin{itemize}
+        \item 系统功能设计
+        \item 系统结构划分
+        \item 电路 / RTL 
+        \item 逻辑综合
+    \end{itemize}
+    \item 生成门级网表
+    \item 后端设计
+    \begin{itemize}
+        \item 物理版图设计
+        \item 物理版图验证
+        \item 核签
+        \item 流片
+    \end{itemize}
+\end{itemize}
+
+\begin{table}[htb]
+    \centering
+    \caption{层次化设计}
+    \begin{tabular}{llll}
+    \hline
+          & 时序单位 & 基本单元   & 功能表述 \\ \hline
+    系统级设计 & 数据处理 & 进程 与通信 & 自然语言 \\
+          &      &        &      \\
+          &      &        &      \\
+          & up   & down   &      \\ \hline
+    \end{tabular}
+    \end{table}
+
+什么是综合（Synthesis），人工的设计称为设计，自动化设计称为综合。
+
+\begin{definition}[综合]
+    从较高层次的设计描述到较低层次的转换、映射并进行一定的优化设计的过程。
+\end{definition}
+
+高层综合从高级语言直接转换，涉及到多目标的优化，如资源延时等。
+
+逻辑综合将 RTL 级代码转换为基于标准单元库满足约束的门级网表。
+
+
+
 % End Here
 
 \let\chapname\undefined
