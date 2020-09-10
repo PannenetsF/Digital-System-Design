@@ -11,89 +11,68 @@
 
 \maketitle
 
-作业内容：1.1-1.45, 1.50, 1.59
+作业内容：
 
-\tableofcontents
+\begin{itemize}
+    \item 数字系统的实现方式有哪些？各有什么优缺点？
+    \item 简述“片上系统(System on Chip, SOC)”
+    \item 什么是Top-Down设计模式？优缺点是什么？
+    \item 数字系统设计过程中，“设计说明书(Specification, Spec)”的作用是什么？通常包含哪些内容？
+\end{itemize}
+
+% \tableofcontents
 
 % Start Here
+\homep{数字系统的实现方式有哪些？各有什么优缺点？} 
 
-\section{1.1-1.28}
-
-\begin{itemize}
-    \item 1.1: 5 CPU
-    \item 1.2: 1 abstraction
-    \item 1.3: 3 bit 
-    \item 1.4: 8 computer family
-    \item 1.5: 19 memory
-    \item 1.6: 10 datapath(why not alu)
-    \item 1.7: 9 control
-    \item 1.8: 11 desktop or pc
-    \item 1.9: 15 embedded system
-    \item 1.10: 22 server 
-    \item 1.11: 18 LAN 
-    \item 1.12: 27 WAN 
-    \item 1.13: 23 supercomputer
-    \item 1.14: 14 DRAM
-    \item 1.15: 13 defect
-    \item i.16: 6 chip
-    \item 1.17: 24 transistor
-    \item 1.18: 12 DVD
-    \item 1.19: 28 yield
-    \item 1.20: 2 assembler
-    \item 1.21: 20 os
-    \item 1.22: 7 compiler
-    \item 1.23: 25 VLSI
-    \item 1.24: 16 instruction
-    \item 1.25: 4 cache
-    \item 1.26: 17 isa 
-    \item 1.27: 21 semiconductor
-    \item 1.28: 26 wafer 
-\end{itemize}
-
-\section{1.29-1.45}
+按照设计方式分：
 
 \begin{itemize}
-    \item assembler: i 
-    \item cpp: b
-    \item LCD: e 
-    \item compiler: i 
-    \item cray-1\footnote{https://en.wikipedia.org/wiki/Cray-1}: h
-    \item DRAM: d
-    \item IBM PC: f
-    \item Java: b
-    \item Scanner: c 
-    \item MacOS: f 
-    \item microprocessor: d
-    \item ms word: a 
-    \item mouse: c
-    \item os: i 
-    \item printer: e 
-    \item silicon: g 
-    \item spreadsheet: a
+    \item 全定制：设计人员完成所有晶体管和互连线的详细版图，以标准逻辑器件以及外围电路组成，一般具有很高的性能，根据提供的接口进行搭积木式设计，几乎没有灵活性且成本以及复杂度很高
+    \item 半定制：标准单元式设计，标准单元库如们阵列与标准模块等有助于提高布局布线效率，自动化程度高，设计周期短，ASIC 广泛使用
+    \item 可编程：基于 FPGA 等可编程逻辑器件，灵活度高，周期短，上市快，但是存在功耗大，成本高，速度慢的问题
 \end{itemize}
 
-\section{1.46}
+\homep{简述“片上系统(System on Chip, SOC)”} 
 
-\[Time_{avg,rot,7200} = 0.5 / 7200 = 0.000069444 s\]
+SoC 是将一种电子系统集成到单一的芯片上的一种方式，一般具有 
 
-\[Time_{avg,rot,10000} = 0.5 / 10000 = 0.00005 s\]
+\begin{itemize}
+    \item 微控制器或者数字信号处理器
+    \item 存储器
+    \item 提供时间信号的晶振等
+    \item 计数器等外设
+    \item 标准接口，如串口、网线等
+    \item DAC 以及 ADC 完成数模转换
+    \item 电源模块维持工作
+\end{itemize}
+并且可以在外部进行编程控制。
 
-\section{1.47}
+对比传统的传统基于主板的 PC 体系结构形成对比，后者基于功能分离组件。与具有等效功能的多芯片设计相比，集成程度更高的设计可以提高性能并减少功耗以及面积。但是这是以减少组件的\textbf{可替换性}为代价的。
 
-在最外圈，一秒转 \(1/1600\) 圈；最内为 \(1/570\) ，那么分别存储 \(1600 \times 1.35 \times 10^6 = 2160000000 Byte\)， \(570 \times 1.35 \times 10^6 = 769500000 Byte\)。
+SoC 广泛的应用到嵌入式系统、移动计算、计算机等。
 
-\section{1.50}
+\homep{什么是Top-Down设计模式？优缺点是什么？}
 
+即自顶向下的设计方式，从系统级设计出发，逐步深入到行为级与 RTL 级设计，并对其进行仿真、综合、后仿真的迭代逐渐满足设计需求。
 
+优点是全局出发，逐渐分析需求，将系统分割为子系统，递归应用此过程直到不可分割，可以从全局的角度对设计进行评估，加快了设计的流程，并且提高了模块复用性，可以应用于超大型的集成电路设计。
 
-\section{1.59}
+缺点是需要大量的 EDA 工具的辅助，而不是仅仅通过原理图以及版图进行辅助，对 EDA 的要求很高，并且不能预先估测设计的芯片子系统的物理属性即面积功耗等。
 
-\section*{词汇}
+\homep{数字系统设计过程中，“设计说明书(Specification, Spec)”的作用是什么？通常包含哪些内容？}
 
-wafer 晶片
+Spec 是一种架构层次的定义， 可以用于沟通 SoC 设计者、PCB 厂家以及消费者。对芯片解决的需求进行明确，对功能进行定义，对模块进行划分，并且提出可行的解决方案和后续的维护方案。
 
-yield 产率
+包括：
 
+\begin{itemize}
+    \item 需求 spec
+    \item 功能 spec
+    \item 设计或产品实现 spec
+    \item 维护方案 spec
+    % \item datasheet spec 
+\end{itemize}
 % End Here
 
 \end{document}
