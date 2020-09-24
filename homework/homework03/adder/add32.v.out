@@ -1,0 +1,81 @@
+#! /usr/bin/vvp
+:ivl_version "10.3 (stable)" "(v10_3)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x555aea9aa050 .scope module, "add32" "add32" 2 5;
+ .timescale 0 0;
+    .port_info 0 /INPUT 32 "a"
+    .port_info 1 /INPUT 32 "b"
+    .port_info 2 /INPUT 1 "cin"
+    .port_info 3 /OUTPUT 32 "sum"
+    .port_info 4 /OUTPUT 1 "cout"
+o0x7f196026b4c8 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v0x555aea9f5490_0 .net "a", 31 0, o0x7f196026b4c8;  0 drivers
+o0x7f196026b0a8 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v0x555aea9f5590_0 .net "ah", 15 0, o0x7f196026b0a8;  0 drivers
+o0x7f196026b318 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v0x555aea9f5650_0 .net "al", 15 0, o0x7f196026b318;  0 drivers
+o0x7f196026b4f8 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v0x555aea9f56f0_0 .net "b", 31 0, o0x7f196026b4f8;  0 drivers
+o0x7f196026b0d8 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v0x555aea9f5790_0 .net "bh", 15 0, o0x7f196026b0d8;  0 drivers
+o0x7f196026b348 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v0x555aea9f58a0_0 .net "bl", 15 0, o0x7f196026b348;  0 drivers
+o0x7f196026b378 .functor BUFZ 1, C4<z>; HiZ drive
+v0x555aea9f5970_0 .net "cin", 0 0, o0x7f196026b378;  0 drivers
+v0x555aea9f5a40_0 .net "cout", 0 0, L_0x555aea9f6200;  1 drivers
+v0x555aea9f5b10_0 .net "cout_l", 0 0, L_0x555aea9f5fd0;  1 drivers
+v0x555aea9f5bb0_0 .net "sh", 15 0, L_0x555aea9f62f0;  1 drivers
+v0x555aea9f5c50_0 .net "sl", 15 0, L_0x555aea9f6070;  1 drivers
+v0x555aea9f5d20_0 .net "sum", 31 0, L_0x555aea9f5e70;  1 drivers
+L_0x555aea9f5e70 .concat [ 16 16 0 0], L_0x555aea9f6070, L_0x555aea9f62f0;
+S_0x555aea9aa1d0 .scope module, "u_h" "add16" 2 48, 3 1 0, S_0x555aea9aa050;
+ .timescale 0 0;
+    .port_info 0 /INPUT 16 "a"
+    .port_info 1 /INPUT 16 "b"
+    .port_info 2 /INPUT 1 "cin"
+    .port_info 3 /OUTPUT 16 "sum"
+    .port_info 4 /OUTPUT 1 "cout"
+v0x555aea9d08e0_0 .net *"_s11", 16 0, L_0x555aea9f63e0;  1 drivers
+L_0x7f19602220a8 .functor BUFT 1, C4<0zzzzzzzzzzzzzzzz>, C4<0>, C4<0>, C4<0>;
+v0x555aea9d0220_0 .net *"_s3", 16 0, L_0x7f19602220a8;  1 drivers
+L_0x7f19602220f0 .functor BUFT 1, C4<0zzzzzzzzzzzzzzzz>, C4<0>, C4<0>, C4<0>;
+v0x555aea9bf150_0 .net *"_s7", 16 0, L_0x7f19602220f0;  1 drivers
+v0x555aea9bea90_0 .net "a", 15 0, o0x7f196026b0a8;  alias, 0 drivers
+v0x555aea9f46f0_0 .net "b", 15 0, o0x7f196026b0d8;  alias, 0 drivers
+v0x555aea9f47d0_0 .net "cin", 0 0, L_0x555aea9f5fd0;  alias, 1 drivers
+v0x555aea9f4890_0 .net "cout", 0 0, L_0x555aea9f6200;  alias, 1 drivers
+v0x555aea9f4950_0 .net "sum", 15 0, L_0x555aea9f62f0;  alias, 1 drivers
+L_0x555aea9f6200 .part L_0x555aea9f63e0, 16, 1;
+L_0x555aea9f62f0 .part L_0x555aea9f63e0, 0, 16;
+L_0x555aea9f63e0 .arith/sum 17, L_0x7f19602220a8, L_0x7f19602220f0;
+S_0x555aea9f4ad0 .scope module, "u_l" "add16" 2 40, 3 1 0, S_0x555aea9aa050;
+ .timescale 0 0;
+    .port_info 0 /INPUT 16 "a"
+    .port_info 1 /INPUT 16 "b"
+    .port_info 2 /INPUT 1 "cin"
+    .port_info 3 /OUTPUT 16 "sum"
+    .port_info 4 /OUTPUT 1 "cout"
+v0x555aea9f4d40_0 .net *"_s11", 16 0, L_0x555aea9f6160;  1 drivers
+L_0x7f1960222018 .functor BUFT 1, C4<0zzzzzzzzzzzzzzzz>, C4<0>, C4<0>, C4<0>;
+v0x555aea9f4e20_0 .net *"_s3", 16 0, L_0x7f1960222018;  1 drivers
+L_0x7f1960222060 .functor BUFT 1, C4<0zzzzzzzzzzzzzzzz>, C4<0>, C4<0>, C4<0>;
+v0x555aea9f4f00_0 .net *"_s7", 16 0, L_0x7f1960222060;  1 drivers
+v0x555aea9f4fc0_0 .net "a", 15 0, o0x7f196026b318;  alias, 0 drivers
+v0x555aea9f50a0_0 .net "b", 15 0, o0x7f196026b348;  alias, 0 drivers
+v0x555aea9f51d0_0 .net "cin", 0 0, o0x7f196026b378;  alias, 0 drivers
+v0x555aea9f5290_0 .net "cout", 0 0, L_0x555aea9f5fd0;  alias, 1 drivers
+v0x555aea9f5330_0 .net "sum", 15 0, L_0x555aea9f6070;  alias, 1 drivers
+L_0x555aea9f5fd0 .part L_0x555aea9f6160, 16, 1;
+L_0x555aea9f6070 .part L_0x555aea9f6160, 0, 16;
+L_0x555aea9f6160 .arith/sum 17, L_0x7f1960222018, L_0x7f1960222060;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "add32.v";
+    "./add16.v";

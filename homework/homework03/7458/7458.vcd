@@ -1,0 +1,56 @@
+$date
+	Thu Sep 24 11:01:26 2020
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module test $end
+$var wire 1 ! p2y $end
+$var wire 1 " p1y $end
+$var reg 6 # p1 [5:0] $end
+$var reg 4 $ p2 [3:0] $end
+$scope module u_7458 $end
+$var wire 1 % and1 $end
+$var wire 1 & and2 $end
+$var wire 1 ' and3 $end
+$var wire 1 ( and4 $end
+$var wire 1 ) p1a $end
+$var wire 1 * p1b $end
+$var wire 1 + p1c $end
+$var wire 1 , p1d $end
+$var wire 1 - p1e $end
+$var wire 1 . p1f $end
+$var wire 1 " p1y $end
+$var wire 1 / p2a $end
+$var wire 1 0 p2b $end
+$var wire 1 1 p2c $end
+$var wire 1 2 p2d $end
+$var wire 1 ! p2y $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+12
+11
+00
+1/
+1.
+0-
+1,
+1+
+1*
+1)
+1(
+0'
+0&
+1%
+b1101 $
+b101111 #
+1"
+1!
+$end
+#1
