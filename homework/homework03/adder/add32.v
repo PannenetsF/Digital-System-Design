@@ -1,6 +1,8 @@
 `include "add16.v"
 `define byname 0
 // `define byport 0
+`define addbit 32
+`define Module_32 0
 
 module add32 (
     a, b, cin, sum, cout

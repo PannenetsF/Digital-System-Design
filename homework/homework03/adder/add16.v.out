@@ -6,33 +6,38 @@
 :vpi_module "vhdl_sys";
 :vpi_module "v2005_math";
 :vpi_module "va_math";
-S_0x5603e9c3a120 .scope module, "add16" "add16" 2 1;
+S_0x55a22ab0a0b0 .scope module, "add16" "add16" 2 4;
  .timescale 0 0;
     .port_info 0 /INPUT 16 "a"
     .port_info 1 /INPUT 16 "b"
     .port_info 2 /INPUT 1 "cin"
     .port_info 3 /OUTPUT 16 "sum"
     .port_info 4 /OUTPUT 1 "cout"
-L_0x7f50e1746060 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
-v0x5603e9c3a340_0 .net *"_s10", 0 0, L_0x7f50e1746060;  1 drivers
-v0x5603e9c7dc80_0 .net *"_s11", 16 0, L_0x5603e9c7e9a0;  1 drivers
-v0x5603e9c7dd60_0 .net *"_s3", 16 0, L_0x5603e9c7e6d0;  1 drivers
-L_0x7f50e1746018 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
-v0x5603e9c7de20_0 .net *"_s6", 0 0, L_0x7f50e1746018;  1 drivers
-v0x5603e9c7df00_0 .net *"_s7", 16 0, L_0x5603e9c7e820;  1 drivers
-o0x7f50e178f108 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
-v0x5603e9c7dfe0_0 .net "a", 15 0, o0x7f50e178f108;  0 drivers
-o0x7f50e178f138 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
-v0x5603e9c7e0c0_0 .net "b", 15 0, o0x7f50e178f138;  0 drivers
-o0x7f50e178f168 .functor BUFZ 1, C4<z>; HiZ drive
-v0x5603e9c7e1a0_0 .net "cin", 0 0, o0x7f50e178f168;  0 drivers
-v0x5603e9c7e260_0 .net "cout", 0 0, L_0x5603e9c7e530;  1 drivers
-v0x5603e9c7e3b0_0 .net "sum", 15 0, L_0x5603e9c7e600;  1 drivers
-L_0x5603e9c7e530 .part L_0x5603e9c7e9a0, 16, 1;
-L_0x5603e9c7e600 .part L_0x5603e9c7e9a0, 0, 16;
-L_0x5603e9c7e6d0 .concat [ 16 1 0 0], o0x7f50e178f108, L_0x7f50e1746018;
-L_0x5603e9c7e820 .concat [ 16 1 0 0], o0x7f50e178f138, L_0x7f50e1746060;
-L_0x5603e9c7e9a0 .arith/sum 17, L_0x5603e9c7e6d0, L_0x5603e9c7e820;
+L_0x7ffb8f386060 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x55a22ab0a2d0_0 .net *"_s10", 0 0, L_0x7ffb8f386060;  1 drivers
+v0x55a22ab4e350_0 .net *"_s11", 16 0, L_0x55a22ab4efe0;  1 drivers
+v0x55a22ab4e430_0 .net *"_s3", 16 0, L_0x55a22ab4ed10;  1 drivers
+L_0x7ffb8f386018 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x55a22ab4e4f0_0 .net *"_s6", 0 0, L_0x7ffb8f386018;  1 drivers
+v0x55a22ab4e5d0_0 .net *"_s7", 16 0, L_0x55a22ab4ee60;  1 drivers
+o0x7ffb8f3cf108 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v0x55a22ab4e6b0_0 .net "a", 15 0, o0x7ffb8f3cf108;  0 drivers
+o0x7ffb8f3cf138 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v0x55a22ab4e790_0 .net "b", 15 0, o0x7ffb8f3cf138;  0 drivers
+o0x7ffb8f3cf168 .functor BUFZ 1, C4<z>; HiZ drive
+v0x55a22ab4e870_0 .net "cin", 0 0, o0x7ffb8f3cf168;  0 drivers
+v0x55a22ab4e930_0 .net "cout", 0 0, L_0x55a22ab4eb70;  1 drivers
+v0x55a22ab4e9f0_0 .net "sum", 15 0, L_0x55a22ab4ec40;  1 drivers
+L_0x55a22ab4eb70 .part L_0x55a22ab4efe0, 16, 1;
+L_0x55a22ab4ec40 .part L_0x55a22ab4efe0, 0, 16;
+L_0x55a22ab4ed10 .concat [ 16 1 0 0], o0x7ffb8f3cf108, L_0x7ffb8f386018;
+L_0x55a22ab4ee60 .concat [ 16 1 0 0], o0x7ffb8f3cf138, L_0x7ffb8f386060;
+L_0x55a22ab4efe0 .arith/sum 17, L_0x55a22ab4ed10, L_0x55a22ab4ee60;
+    .scope S_0x55a22ab0a0b0;
+T_0 ;
+    %vpi_call 2 17 "$display", 32'sb00000000000000000000000000100000 {0 0 0};
+    %end;
+    .thread T_0;
 # The file index is used to find the file name in the following table.
 :file_names 3;
     "N/A";

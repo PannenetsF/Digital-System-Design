@@ -6,7 +6,7 @@ tout = open('byteInv.out', 'w')
 for i in range(100):
     num_buf = []
     for j in range(4):
-        num_buf.append(random.randint(0, 256))
+        num_buf.append(random.randint(0, 255))
     s = ''
     for j in num_buf:
         s += '%02x'%j 
