@@ -1,0 +1,53 @@
+\documentclass[lang=cn,11pt,a4paper,cite=authoryear]{elegantpaper}
+
+\input{needed.tex}
+
+\title{数字电路高层次综合设计\quad 第三周作业}
+\author{范云潜 18373486}
+\institute{微电子学院 184111 班}
+\date{\zhtoday}
+
+\begin{document}
+
+\maketitle
+
+作业内容：
+
+% \tableofcontents
+
+% Start Here
+\section{设计与测试综述}
+
+本节对实验的设计方法和测试方法进行说明，在具体模块的实现后不再赘述。
+
+\subsection{设计方法}
+
+对于结构级设计方法或者说从门级进行设计的方法，产生的硬件有着最高的确定性，但是设计较困难。在本实验设计的简单逻辑中仍可接受，若是与复杂计算逻辑相关，本这样的方法很难迅速的实现，并且最终结果也缺乏可读性，难以修改。
+
+对于数据流式的设计方法，设计思路直观，设计迅速，但是底层实现不能确定，和工艺以及目标平台相关。这是在较高层次的设计中比较常用的方式。
+
+在本次实验中仅涉及到组合逻辑，我们对于输入的下一节点进行分组，可以得到不同节点的计算式，重复应用直到输出级即可完成设计。
+
+\subsection{测试方法}
+
+对于所有的模块的 TestBench 均采用 Golden Model 方式进行测试，通过 Python 生成多组随机数据作为输入，计算后得到输出，将输入输出写入文件。在 TestBench 中通过 \lstinline{readmemh/readmemb} 读取到测试 Buf 中，逐个输入后比对输出，若是输出错误将信息 \lstinline{display} 到标准输出便于调试。同时，将所有的变量的波形进行存储，便于调试。
+
+对于同一模块不同实现可以使用同样的，通过 \lstinline{`define, `ifdef} 等实例化不同的模块。
+
+\section{7458 芯片}
+
+按照芯片的门级表示进行门级元件调用或者通过 \lstinline{assign} 或 \lstinline{always} 进行两种方式的实现。
+
+\section{向量逆序输出}
+
+通过 Verilog 的位选语法进行分组与重组。
+
+\section{加法器}
+
+对于 16 位加法器通过 \lstinline{assign} 完成数据加法，输出到 \lstinline{cout,sum}
+
+对于 32 位的加法器，需要由 16 位的加法器进行串联，第一级的进位为第二级的输入，进行模块调用即可。
+
+% End Here
+
+\end{document}
