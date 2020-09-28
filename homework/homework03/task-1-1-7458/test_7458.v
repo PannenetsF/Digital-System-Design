@@ -66,7 +66,7 @@ initial begin
         p1 = p1_test[i];
         p2 = p2_test[i];
         #1;
-        if (py != ans_test[i]) begin
+        if (py !== ans_test[i]) begin
             $display("test failed at %d! in1: %x in2: %x out: %x, should: %x", i, p1, p2, py, ans_test[i]);
             $finish;
         end

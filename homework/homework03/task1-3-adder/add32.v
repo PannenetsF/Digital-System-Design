@@ -17,6 +17,8 @@ output cout;
 wire [15:0] ah, al, bh, bl, sh, sl;
 wire cout_l;
 
+assign {ah, al} = a;
+assign {bh, bl} = b;
 assign sum = {sh, sl};
 
 `ifdef byport

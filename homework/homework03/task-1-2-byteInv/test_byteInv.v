@@ -25,7 +25,7 @@ initial begin
     for (i = 0; i < 100; i = 1 + i) begin
         a = in_test[i];
         #1;
-        if (b != out_test[i]) begin
+        if (b !== out_test[i]) begin
             $display("test failed at %d! in: %08x, out: %08x, should: %08x", i, a, b, out_test[i]);
             // $finish;
         end

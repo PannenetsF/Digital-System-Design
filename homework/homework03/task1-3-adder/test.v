@@ -1,5 +1,5 @@
-`include "add16.v"
-// `include "add32.v"
+// `include "add16.v"
+`include "add32.v"
 
 module test (
 );
@@ -52,12 +52,12 @@ initial begin
         b = b_test[i];
         cin = cin_test[i];
         #1;
-        if (ans != ans_test[i]) begin
+        if (ans !== ans_test[i]) begin
             $display("test failed at %d! in1: %x in2: %x, cin: %x, out: %x, should: %x", i, a, b, cin, ans, ans_test[i]);
             $finish;
         end
     end
-    $display("test passed");
+    $display("add %d test passed", `addbit);
     $finish;
 end
 

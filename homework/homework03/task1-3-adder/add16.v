@@ -14,8 +14,8 @@ output cout;
 assign {cout, sum} = a + b + cin;
 
 
-initial begin
-    $display(`addbit);
-end
+// initial begin
+//     $display(`addbit);
+// end
     
 endmodule

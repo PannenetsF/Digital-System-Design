@@ -29,7 +29,7 @@
 
 \subsection{测试方法}
 
-对于所有的模块的 TestBench 均采用 Golden Model 方式进行测试，通过 Python 生成多组随机数据作为输入，计算后得到输出，将输入输出写入文件。在 TestBench 中通过 \lstinline{readmemh/readmemb} 读取到测试 Buf 中，逐个输入后比对输出，若是输出错误将信息 \lstinline{display} 到标准输出便于调试。同时，将所有的变量的波形进行存储，便于调试。
+对于所有的模块的 TestBench 均采用 Golden Model 方式进行测试，通过 Python 生成多组随机数据作为输入，计算后得到输出，将输入输出写入文件。在 TestBench 中通过 \lstinline{readmemh/readmemb} 读取到测试 Buf 中，逐个输入后比对输出，若是输出错误将信息 \lstinline{display} 到标准输出便于调试。同时，将所有的变量的波形进行存储，便于调试。需要注意的是，测试应该使用逻辑全等也就是 \lstinline{!==, ===} 来进行测试，防止悬空引脚的高阻态全等。
 
 对于同一模块不同实现可以使用同样的，通过 \lstinline{`define, `ifdef} 等实例化不同的模块。
 
