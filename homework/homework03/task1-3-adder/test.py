@@ -1,5 +1,5 @@
-# ADDBIT = 16
-ADDBIT = 32
+ADDBIT = 16
+# ADDBIT = 32
 
 import random 
 

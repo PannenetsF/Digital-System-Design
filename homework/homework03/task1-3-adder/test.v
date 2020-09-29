@@ -1,5 +1,5 @@
-// `include "add16.v"
-`include "add32.v"
+`include "add16.v"
+// `include "add32.v"
 
 module test (
 );
