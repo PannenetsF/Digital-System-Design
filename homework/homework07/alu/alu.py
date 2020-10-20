@@ -20,10 +20,10 @@ for i in range(100):
         ans = a | b 
     else:
         raise ValueError('You op is bullshit')
-    a_f.write(hex(a)[2:])
-    b_f.write(hex(b)[2:])
-    op_f.write(hex(op)[2:])
-    ans_f.write(hex(ans)[2:])
+    a_f.write(hex(a)[2:]+' ')
+    b_f.write(hex(b)[2:]+' ')
+    op_f.write(hex(op)[2:]+' ')
+    ans_f.write(hex(ans)[2:]+' ')
 
 for i in [a_f, b_f, op_f, ans_f]:
     i.close()

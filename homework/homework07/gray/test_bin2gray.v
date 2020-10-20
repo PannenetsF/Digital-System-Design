@@ -5,7 +5,7 @@ module test (
 reg [3:0] in;
 wire [3:0] out;
 
-bin2gray u_2(
+top_module u_2(
     in,
     out
 );

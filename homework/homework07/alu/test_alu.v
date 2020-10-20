@@ -8,7 +8,7 @@ reg [3:0] a;
 reg [3:0] b;
 wire [3:0] res;
 
-alu u_alu(
+top_module u_alu(
     .op(op),
     .a(a),
     .b(b),

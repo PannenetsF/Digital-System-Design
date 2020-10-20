@@ -1,4 +1,4 @@
-module mux4 (
+module top_module (
     en,
     s,
     d,

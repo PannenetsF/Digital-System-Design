@@ -9,7 +9,7 @@ reg [1:0] s;
 reg [3:0] d;
 wire y;
 
-mux4 u_mux(
+top_module u_mux(
     .en(en),
     .s(s),
     .d(d),

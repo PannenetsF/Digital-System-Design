@@ -1,4 +1,4 @@
-module bin2gray (
+module top_module (
     in,
     out
 );

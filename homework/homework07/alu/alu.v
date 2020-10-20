@@ -1,4 +1,4 @@
-module alu (
+module top_module (
     op,
     a,
     b,

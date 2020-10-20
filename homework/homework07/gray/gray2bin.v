@@ -1,4 +1,4 @@
-module gray2bin (
+module top_module (
     in, 
     out
 );
