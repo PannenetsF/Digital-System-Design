@@ -1,7 +1,0 @@
-# OpenFile test_byte.wlf
-add wave -position insertpoint  \
-test_byte:/test/bcd_ten \
-test_byte:/test/bcd_one \
-test_byte:/test/bcd_hun \
-test_byte:/test/bin \
-test_byte:/test/i
