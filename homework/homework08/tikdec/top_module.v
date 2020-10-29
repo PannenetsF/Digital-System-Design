@@ -28,7 +28,6 @@ always @(posedge clk or reset) begin
             cnt <= 0;
             full <= 0;
         end
-        else 
         else begin
             cnt <= cnt + 1;
             if (cnt == `MAX - 1 - 1) begin

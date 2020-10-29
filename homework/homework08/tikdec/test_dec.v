@@ -1,4 +1,4 @@
-`include "dec.v"
+`include "top_module.v"
 
 module test (
 

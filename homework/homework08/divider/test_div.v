@@ -1,4 +1,4 @@
-`include "div.v"
+`include "top_module.v"
 module test (
 
 );

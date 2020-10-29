@@ -1,4 +1,4 @@
-`include "loader.v"
+`include "top_module.v"
 
 module test (
 );
