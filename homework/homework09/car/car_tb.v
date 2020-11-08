@@ -1,4 +1,5 @@
 `include "car.v"
+`timescale 1ns/1ns
 
 module test (
 
@@ -12,7 +13,7 @@ wire [2:0] led_left, led_right;
 
 car_led u_car(clk, reset, emergency, left , right, brake, led_left, led_right);
 
-always #1 clk = ~clk;
+always #5 clk = ~clk;
 
 reg [3:0] data [11:0];
 integer i;

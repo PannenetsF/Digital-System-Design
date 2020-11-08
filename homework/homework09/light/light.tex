@@ -55,6 +55,16 @@ endtask
 
 灯的状态采用组合逻辑完成，可以注意到，红灯是特殊的，除去本方向的其他灯亮起时，是一直亮着的。
 
+状态转移图如 \figref{01} 。
+
+
+\begin{figure}[htb]
+    \centering
+    \caption{转换图}\label{01}
+    \includegraphics[width=0.6\textwidth]{fsm.png}
+\end{figure}
+
+
 \section{测试思路}
 
 这道题目除了测试状态的转换，还需要测试转换持续的时间。因此，使用 \lstinline{wait} 语句检测状态是否发生可转换，并且在其中对上升沿计数，如 \ref{l3} 。

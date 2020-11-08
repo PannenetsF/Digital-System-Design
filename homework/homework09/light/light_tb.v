@@ -1,5 +1,5 @@
 `include "light.v"
-
+`timescale 1ns/1ns
 module test (
 
 );
@@ -12,7 +12,7 @@ traffic_light u(
     clk, reset, light_ew_rgyl, light_sn_rgyl
 );
 
-always #1 clk = ~clk;
+always #5 clk = ~clk;
 
 integer i;
 reg [3:0] sta;
