@@ -4,7 +4,7 @@ module test (
 
 );
 
-reg [7:0] bin;
+reg [9:0] bin;
 wire [3:0] bcd_hun;
 wire [3:0] bcd_ten;
 wire [3:0] bcd_one;
@@ -16,7 +16,7 @@ integer i;
 initial begin
     $dumpfile("test.vcd");
     $dumpvars;
-    for (i = 0; i < 256; i = i + 1) begin
+    for (i = 0; i < 1000; i = i + 1) begin
         bin = i;
         #1;
         if (bin != 100*bcd_hun + 10*bcd_ten + bcd_one) begin

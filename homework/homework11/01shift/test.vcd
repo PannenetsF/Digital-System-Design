@@ -1,0 +1,156 @@
+$date
+	Tue Nov 17 09:06:08 2020
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module test $end
+$var wire 7 ! HEX7 [6:0] $end
+$var wire 7 " HEX6 [6:0] $end
+$var wire 7 # HEX5 [6:0] $end
+$var wire 7 $ HEX4 [6:0] $end
+$var wire 7 % HEX3 [6:0] $end
+$var wire 7 & HEX2 [6:0] $end
+$var wire 7 ' HEX1 [6:0] $end
+$var wire 7 ( HEX0 [6:0] $end
+$var reg 1 ) KEY $end
+$var reg 18 * SW [17:0] $end
+$scope module u $end
+$var wire 1 ) KEY $end
+$var wire 18 + SW [17:0] $end
+$var wire 1 , clk $end
+$var wire 1 - reset $end
+$var wire 4 . data [3:0] $end
+$var wire 2 / ctrl [1:0] $end
+$var wire 7 0 HEX7 [6:0] $end
+$var wire 7 1 HEX6 [6:0] $end
+$var wire 7 2 HEX5 [6:0] $end
+$var wire 7 3 HEX4 [6:0] $end
+$var wire 7 4 HEX3 [6:0] $end
+$var wire 7 5 HEX2 [6:0] $end
+$var wire 7 6 HEX1 [6:0] $end
+$var wire 7 7 HEX0 [6:0] $end
+$var reg 8 8 show [7:0] $end
+$scope module u_0 $end
+$var wire 7 9 HEX0 [6:0] $end
+$var wire 4 : SW [3:0] $end
+$var reg 7 ; HEX [6:0] $end
+$upscope $end
+$scope module u_1 $end
+$var wire 7 < HEX0 [6:0] $end
+$var wire 4 = SW [3:0] $end
+$var reg 7 > HEX [6:0] $end
+$upscope $end
+$scope module u_2 $end
+$var wire 7 ? HEX0 [6:0] $end
+$var wire 4 @ SW [3:0] $end
+$var reg 7 A HEX [6:0] $end
+$upscope $end
+$scope module u_3 $end
+$var wire 7 B HEX0 [6:0] $end
+$var wire 4 C SW [3:0] $end
+$var reg 7 D HEX [6:0] $end
+$upscope $end
+$scope module u_4 $end
+$var wire 7 E HEX0 [6:0] $end
+$var wire 4 F SW [3:0] $end
+$var reg 7 G HEX [6:0] $end
+$upscope $end
+$scope module u_5 $end
+$var wire 7 H HEX0 [6:0] $end
+$var wire 4 I SW [3:0] $end
+$var reg 7 J HEX [6:0] $end
+$upscope $end
+$scope module u_6 $end
+$var wire 7 K HEX0 [6:0] $end
+$var wire 4 L SW [3:0] $end
+$var reg 7 M HEX [6:0] $end
+$upscope $end
+$scope module u_7 $end
+$var wire 7 N HEX0 [6:0] $end
+$var wire 4 O SW [3:0] $end
+$var reg 7 P HEX [6:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b111111 P
+b0 O
+b1000000 N
+b111111 M
+b0 L
+b1000000 K
+b111111 J
+b0 I
+b1000000 H
+b111111 G
+b0 F
+b1000000 E
+b110 D
+b1 C
+b1111001 B
+b110 A
+b1 @
+b1111001 ?
+b111111 >
+b0 =
+b1000000 <
+b111111 ;
+b0 :
+b1000000 9
+b1100 8
+b1000000 7
+b1000000 6
+b1111001 5
+b1111001 4
+b1000000 3
+b1000000 2
+b1000000 1
+b1000000 0
+b11 /
+b1100 .
+0-
+0,
+b11000000000001100 +
+b11000000000001100 *
+0)
+b1000000 (
+b1000000 '
+b1111001 &
+b1111001 %
+b1000000 $
+b1000000 #
+b1000000 "
+b1000000 !
+$end
+#1
+1,
+1)
+#2
+b10 /
+b10000000000001100 *
+b10000000000001100 +
+0,
+0)
+#3
+b1000000 %
+b1000000 4
+b1000000 B
+b1111001 '
+b1111001 6
+b1111001 <
+b111111 D
+b110 >
+b0 C
+b1 =
+b110 8
+1,
+1)
+#4
+0,
+0)

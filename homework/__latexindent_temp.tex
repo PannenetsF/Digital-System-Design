@@ -1,0 +1,104 @@
+\documentclass[lang=cn,11pt,a4paper,cite=authoryear]{elegantpaper}
+
+\input{needed.tex}
+
+\title{数字电路高层次综合设计\quad 第十周作业}
+\author{范云潜 18373486}
+\institute{微电子学院 184111 班}
+\date{\zhtoday}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\listoffigures
+
+\section*{注意}
+
+本次实验的源代码在压缩包的 \lstinline{./homework10/} 下，并且已经按照实验序号标号，如 \lstinline{./homework10/01mux} 代表第一个实验。
+
+\section{二路选择器}
+
+本次核心的写法是 \lstinline{assign out = flag ? ans_1 : ans_0} 。
+
+
+\begin{figure}
+    \centering
+    \caption{二路选择器结果}\label{01} 
+    % line 1
+    \sfig[0.45]{hw10021.jpg} \hfill 
+    \sfig[0.45]{hw10022.jpg}
+\end{figure}
+
+\section{16 进制显示}
+
+本次核心写法是 \lstinline{case()...default: } ，对不同的输入进行编码即可，若是从共阴极转换到共阳极只需要将 \lstinline{assign out = ~out_pre} 。
+
+
+\begin{figure}
+    \centering
+    \caption{16 进制显示结果}\label{02} 
+    % line 1
+    \sfig[0.23]{hw10031.jpg} \hfill 
+    \sfig[0.23]{hw10032.jpg} \hfill 
+    \sfig[0.23]{hw10033.jpg} \hfill 
+    \sfig[0.23]{hw10034.jpg} 
+\end{figure}
+
+\section{10 进制显示}
+
+将上一实验的 \lstinline{case} 大于 \lstinline{9} 的部分取消即可。
+
+\begin{figure}
+    \centering
+    \caption{10 进制显示结果}\label{03} 
+    % line 1
+    \sfig[0.3]{hw10041.jpg} \hfill 
+    \sfig[0.3]{hw10042.jpg} \hfill 
+    \sfig[0.3]{hw10043.jpg}  
+    % \sfig[0.23]{hw10034.jpg} 
+\end{figure}
+
+
+\section{多位 10 进制显示}
+
+实例化上一实验的接口即可。
+
+
+\section{BCD 显示}
+
+实例化 BCD 模块，并且将 BCD 的输出绑定到显示模块，同时忽略多位显示的最高位即可。
+
+\begin{figure}
+    \centering
+    \caption{BCD 码显示结果}\label{03} 
+    % line 1
+    \sfig[0.3]{hw10051.jpg} \hfill 
+    \sfig[0.3]{hw10052.jpg} \hfill 
+    \sfig[0.3]{hw10053.jpg}  
+    % \sfig[0.23]{hw10034.jpg} 
+\end{figure}
+
+\section{运算器}
+
+核心写法是 \lstinline{assign out = flag ? ans_1 : ans_0} ，并且将输出绑定到显示模块。
+
+\begin{figure}
+    \centering
+    \caption{运算器结果}\label{05} 
+    % line 1
+    \sfig{hw10011.jpg}
+    \sfig{hw10012.jpg}
+    \sfig{hw10013.jpg}
+    \bigskip
+    \bigskip
+    \sfig{hw10014.jpg}
+    \sfig{hw10015.jpg}
+\end{figure}
+% Start Here
+
+% End Here
+
+\end{document}
