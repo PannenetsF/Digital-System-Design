@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.9.9)  15 NOV 2020 12:25
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.9.9)  17 NOV 2020 15:17
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -869,6 +869,14 @@ File: figure/hw10042.jpg Graphic file (type bmp)
 <figure/hw10042.jpg>
 File: figure/hw10043.jpg Graphic file (type bmp)
 <figure/hw10043.jpg>
+File: figure/hw10061.jpg Graphic file (type bmp)
+<figure/hw10061.jpg>
+File: figure/hw10062.jpg Graphic file (type bmp)
+<figure/hw10062.jpg>
+File: figure/hw10063.jpg Graphic file (type bmp)
+<figure/hw10063.jpg>
+File: figure/hw10064.jpg Graphic file (type bmp)
+<figure/hw10064.jpg>
 File: figure/hw10051.jpg Graphic file (type bmp)
 <figure/hw10051.jpg>
 File: figure/hw10052.jpg Graphic file (type bmp)
@@ -885,12 +893,12 @@ File: figure/hw10014.jpg Graphic file (type bmp)
 <figure/hw10014.jpg>
 File: figure/hw10015.jpg Graphic file (type bmp)
 <figure/hw10015.jpg>
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 104.
- [3] [4] [5]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 104.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 116.
+ [3] [4] [5] [6] [7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 116.
  (./homework.week10.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 104.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 104.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 116.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 116.
 Package rerunfilecheck Info: File `homework.week10.out' has not changed.
 (rerunfilecheck)             Checksum: D7871D01EF24415CAF86D90919B496EB;535.
 
@@ -899,12 +907,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 22509 strings out of 479682
- 423014 string characters out of 5891585
+ 22534 strings out of 479682
+ 423442 string characters out of 5891585
  962420 words of memory out of 5000000
- 39382 multiletter control sequences out of 15000+600000
+ 39403 multiletter control sequences out of 15000+600000
  568625 words of font info for 88 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  69i,6n,126p,846b,2190s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on homework.week10.pdf (5 pages).
+Output written on homework.week10.pdf (7 pages).
