@@ -1,4 +1,4 @@
-//`include "dec.v"
+`include "dec.v"
 
 module dec_4 (
     SW,

@@ -1,24 +1,21 @@
 `include "clk.v"
-`timescale 1ns/1ns 
-
 module test (
-
 );
+
 reg clk;
+reg [17:0] SW;
+clks u(.CLOCK_50(clk), .SW(SW));
 
 always #1 clk = ~clk;
-
-
-// 50M -> 5M 
-clk #(.M(5000000)) u(.CLOCK_50(clk));
 
 initial begin
     $dumpfile("test.vcd");
     $dumpvars;
+    SW[17] = 1;
     clk = 0;
-    #200;
+    #1 SW[17] = 0;
+    #1000;
     $finish;
 end
-
-
+    
 endmodule
