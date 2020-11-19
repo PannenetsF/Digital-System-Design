@@ -2,7 +2,7 @@
 
 \input{needed.tex}
 
-\title{数字电路高层次综合设计\quad 第十周作业}
+\title{数字电路高层次综合设计\quad 第十一周作业}
 \author{范云潜 18373486}
 \institute{微电子学院 184111 班}
 \date{\zhtoday}
@@ -11,94 +11,110 @@
 
 \maketitle
 
+% 作业内容：
+
 \tableofcontents
 
 \listoffigures
 
-\section*{注意}
+本次作业很明显的体现了代码复用的原则，在之后开始一周的作业时，应先对复用性进行一定的分析。本次报告中将模块的定义与端口通过伪代码形式给出。
 
-本次实验的源代码在压缩包的 \lstinline{./homework10/} 下，并且已经按照实验序号标号，如 \lstinline{./homework10/01mux} 代表第一个实验。
+\section{N 位通用移位寄存器}
 
-\section{二路选择器}
+对本实验进行模块划分：
 
-本次核心的写法是 \lstinline{assign out = flag ? ans_1 : ans_0} 。
+\begin{itemize}
+    \item 数据移位寄存器： \lstinline{shift (clk_key, data_init, ctrl, data_out)} 
+    \item 数据显示七段管： \lstinline{dec (data, HEX)}
+\end{itemize}
 
+需要注意到， Quartus 对时钟与复位的要求是，触发类型相同，不能出现电平触发和沿触发混合的形式。对 \lstinline{ctrl} 的控制通过 \lstinline{case} 进行选择即可。
 
-\begin{figure}
-    \centering
-    \caption{二路选择器结果}\label{01} 
-    % line 1
-    \sfig[0.45]{hw10021.jpg} \hfill 
-    \sfig[0.45]{hw10022.jpg}
-\end{figure}
-
-\section{16 进制显示}
-
-本次核心写法是 \lstinline{case()...default: } ，对不同的输入进行编码即可，若是从共阴极转换到共阳极只需要将 \lstinline{assign out = ~out_pre} 。
 
 
 \begin{figure}
     \centering
-    \caption{16 进制显示结果}\label{02} 
+    \caption{移位寄存器结果}\label{01} 
     % line 1
-    \sfig[0.23]{hw10031.jpg} \hfill 
-    \sfig[0.23]{hw10032.jpg} \hfill 
-    \sfig[0.23]{hw10033.jpg} \hfill 
-    \sfig[0.23]{hw10034.jpg} 
+    \sfig[0.2]{hw11011.jpg} \hfill 
+    \sfig[0.2]{hw11012.jpg} \hfill
+    \sfig[0.2]{hw11013.jpg} \hfill 
+    \sfig[0.2]{hw11014.jpg} \bigskip 
 \end{figure}
 
-\section{10 进制显示}
+\section{手动模 M 计数器}
 
-将上一实验的 \lstinline{case} 大于 \lstinline{9} 的部分取消即可。
+对本实验进行模块划分：
+
+\begin{itemize}
+    \item 计数器： \lstinline{cnt (clk, reset, sum)} ，对给定信号的上升沿进行计数，并且设定计数上限为 \lstinline{M} 即可
+    \item 使能信号： 可以添加到上一模块，或者将上一模块的输入修改为 \lstinline{clk & en} 
+    \item 显示模块： 将计数器的 \lstinline{sum} 输入到 BCD 编码器，将 BCD 编码器的输出接到七段管
+\end{itemize}
+
+需要注意不能使用除法以及取模操作，消耗资源极大。
+
+
 
 \begin{figure}
     \centering
-    \caption{10 进制显示结果}\label{03} 
+    \caption{取模器结果}\label{02} 
     % line 1
-    \sfig[0.3]{hw10041.jpg} \hfill 
-    \sfig[0.3]{hw10042.jpg} \hfill 
-    \sfig[0.3]{hw10043.jpg}  
-    % \sfig[0.23]{hw10034.jpg} 
+    \sfig[0.18]{hw11021.jpg} \hfill 
+    \sfig[0.18]{hw11022.jpg} \hfill 
+    \sfig[0.18]{hw11023.jpg} \hfill 
+    \sfig[0.18]{hw11024.jpg} \hfill 
+    \sfig[0.18]{hw11025.jpg} \hfill 
 \end{figure}
 
+\section{分频器}
 
-\section{多位 10 进制显示}
+首先明确，晶振和需要的输出之间频率的数量级差距很大，因此无需过分在意奇偶分频的区别，通过计数上升沿进行计算的误差会很小。
 
-实例化上一实验的接口即可。
+模块划分：
 
+\begin{itemize}
+    \item 分频器\footnote{类似上一实验中的计数器，但是输出变成一位的 \lstinline{tik} 信号}： \lstinline{tik #(.BASE_FREQ(), .NEEDED_FREQ()) (clk, reset, tik_clk)} 
+    \item 计数器：\lstinline{cnt (clk, reset, sum)} ，对给定信号的上升沿进行计数，并且设定计数上限为 \lstinline{M} 即可，对分频后的时钟信号进行计数
+    \item 显示模块： 将计数器的 \lstinline{sum} 输入到 BCD 编码器，将 BCD 编码器的输出接到七段管
+\end{itemize}
 
-\section{BCD 显示}
-
-实例化 BCD 模块，并且将 BCD 的输出绑定到显示模块，同时忽略多位显示的最高位即可。
 
 \begin{figure}
     \centering
-    \caption{BCD 码显示结果}\label{03} 
+    \caption{分频器结果}\label{03} 
     % line 1
-    \sfig[0.3]{hw10051.jpg} \hfill 
-    \sfig[0.3]{hw10052.jpg} \hfill 
-    \sfig[0.3]{hw10053.jpg}  
-    % \sfig[0.23]{hw10034.jpg} 
+    \sfig[0.2]{hw11031.jpg} \hfill 
+    \sfig[0.2]{hw11032.jpg} \hfill
+    \sfig[0.2]{hw11033.jpg} \hfill 
+    \sfig[0.2]{hw11034.jpg} \bigskip 
 \end{figure}
 
-\section{运算器}
+\section{简易电子时钟}
 
-核心写法是 \lstinline{assign out = flag ? ans_1 : ans_0} ，并且将输出绑定到显示模块。
 
-\begin{figure}
-    \centering
-    \caption{运算器结果}\label{05} 
-    % line 1
-    \sfig{hw10011.jpg}
-    \sfig{hw10012.jpg}
-    \sfig{hw10013.jpg}
-    \bigskip
-    \bigskip
-    \sfig{hw10014.jpg}
-    \sfig{hw10015.jpg}
-\end{figure}
-% Start Here
+模块划分：
 
-% End Here
+\begin{itemize}
+    \item 分频器：\lstinline{tik #(.BASE_FREQ(), .NEEDED_FREQ()) (clk, reset, tik_clk)}  使用上一实验中的分频器即可，获得毫秒周期的信号
+    \item 时序逻辑计数：对毫秒进行计数，并且手动产生秒与分钟的进位
+    \item BCD 编码器：将之前实验中的 BCD 输入修改为 10 位，来满足 \lstinline{0-1000} 范围内的编码
+    \item 显示模块： 将计数器的毫秒、秒、分钟输入到 BCD 编码器，将 BCD 编码器的输出接到七段管
+\end{itemize}
+
+\section{7 段管循环显示}
+
+模块划分：
+
+\begin{itemize}
+    \item 循环移位寄存器：设定以四位为单元的移位寄存器，将长度与需要的初始值写入参数：
+
+    \lstinline{shift #(.N(), .[4*N-1:0]INIT()) (clk, reset, out)} 
+    \item LED 显示： 通过组合逻辑写出
+    \item 分频器：产生一秒的时钟信号
+    \item 显示模块：需要定义新字符的段码
+\end{itemize}
+
+将字符串 \lstinline{'HELLO BUAA'} 进行分析，其中不存在 \lstinline{'HELUA'} ，其他的可以从对应关系中导出： \lstinline{0->U, 8->B, ' '->default} ，恰好补全十进制七段管显示的 \lstinline{0xa-0xe} 。
 
 \end{document}
