@@ -21,7 +21,7 @@
 
 \section{N 位通用移位寄存器}
 
-对本实验进行模块划分：
+顶层为 \lstinline{./01shift/shift.v} ，对本实验进行模块划分：
 
 \begin{itemize}
     \item 数据移位寄存器： \lstinline{shift (clk_key, data_init, ctrl, data_out)} 
@@ -44,7 +44,7 @@
 
 \section{手动模 M 计数器}
 
-对本实验进行模块划分：
+顶层为 \lstinline{./02shift/mod.v} ，对本实验进行模块划分：
 
 \begin{itemize}
     \item 计数器： \lstinline{cnt (clk, reset, sum)} ，对给定信号的上升沿进行计数，并且设定计数上限为 \lstinline{M} 即可
@@ -71,7 +71,7 @@
 
 首先明确，晶振和需要的输出之间频率的数量级差距很大，因此无需过分在意奇偶分频的区别，通过计数上升沿进行计算的误差会很小。
 
-模块划分：
+顶层为 \lstinline{./03clk/clk.v} ，模块划分：
 
 \begin{itemize}
     \item 分频器\footnote{类似上一实验中的计数器，但是输出变成一位的 \lstinline{tik} 信号}： \lstinline{tik #(.BASE_FREQ(), .NEEDED_FREQ()) (clk, reset, tik_clk)} 
@@ -93,7 +93,7 @@
 \section{简易电子时钟}
 
 
-模块划分：
+顶层为 \lstinline{./04time/clk.v} ，模块划分：
 
 \begin{itemize}
     \item 分频器：\lstinline{tik #(.BASE_FREQ(), .NEEDED_FREQ()) (clk, reset, tik_clk)}  使用上一实验中的分频器即可，获得毫秒周期的信号
@@ -116,7 +116,7 @@
 
 \section{7 段管循环显示}
 
-模块划分：
+顶层为 \lstinline{./05buaa/show.v} ，模块划分：
 
 \begin{itemize}
     \item 循环移位寄存器：设定以四位为单元的移位寄存器，将长度与需要的初始值写入参数：
@@ -139,13 +139,16 @@
     
     \bigskip
 
-    \sfig[0.24]{hw11055.jpg} \hfill 
-    \sfig[0.24]{hw11056.jpg} \hfill 
-    \sfig[0.24]{hw11057.jpg} \hfill 
-    \sfig[0.24]{hw11058.jpg} \bigskip  
-    \sfig[0.24]{hw11059.jpg} \hfill 
-    \sfig[0.24]{hw110510.jpg} \hfill 
-    \sfig[0.24]{hw110511.jpg} \hfill 
+    \sfig[0.22]{hw11055.jpg} \hfill 
+    \sfig[0.22]{hw11056.jpg} \hfill 
+    \sfig[0.22]{hw11057.jpg} \hfill 
+    \sfig[0.22]{hw11058.jpg} 
+    
+    \bigskip  
+    
+    \sfig[0.22]{hw11059.jpg} \hfill 
+    \sfig[0.22]{hw110510.jpg} \hfill 
+    \sfig[0.22]{hw110511.jpg} \hfill 
 \end{figure}
 
 

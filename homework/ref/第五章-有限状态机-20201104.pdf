@@ -1,0 +1,138 @@
+<!DOCTYPE html><html>
+<head>
+    <meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/><title>CAS Login</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/index.css"><!--[if lt IE 9]>
+    <script src="/js/respond.min.js"></script>
+    <![endif]--><script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+<iframe id="loginIframe"></iframe>
+<div id="default" class="container">
+    <div class="border col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+        <div class="system">CAS Login</div>
+        <div class="service" id="targetSystem">课程中心</div>
+        <div class="service" id="targetSystemDescription" style="display: none;"></div>
+        <form method="post" id="loginForm" action="login">
+            <div class="form-group">
+                <label>
+                    <span>Password</span>
+                    <input type="text" class="form-control" name="username"></label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <span>Password</span>
+                    <input type="password" class="form-control" name="password"></label>
+            </div>
+            <div class="form-group" style="display: none;" id="captchaParent">
+                <label>
+                    <span style="display: none;" id="captchaLabel">Validation Code</span>
+                    <div id="captchaDiv"></div>
+                </label>
+            </div>
+            <div class="form-group">
+                <input class="btn btn-login" type="submit" name="submit" value="LOGIN"></div>
+
+            <div style="display: none;">
+                <input name="type" value="username_password"/><input name="execution" value="c01278f3-b0ae-4417-88ca-e1fd7e818ff9_ZXlKaGJHY2lPaUpJVXpVeE1pSjkuaTNXeGZBc2thNThkUnc0TUltMk1uZG9VNkNJNE5QdUs2dzJxYjlVOGJ5TW51UXJCNmFuNEdDaDB3MHNVcWoxMmpjOWVLYWF4c2kzTzkyMnRtMWFaVHV5NjFwcVgvaU56SEo3bXJqdGdmZ3FOQ0F5NVJNc3p6NmcwT3JxbmphZzdnTjB0aEJyOEhueFlEbjFGMG41V0FhT2ZFMTlZaW9IMUxLNENVbTNBRHg4RlNLZ3p3Vk9BcXZsM0ZzYndQWUFTMlE2WC9vVGpUL2dhcEh0NE0yY1hmS1BFL1RsRUVXTnQrYnMyMVoxVzI2eFpOaWJDd0h2TnhUWFk4WUNqVTJOS05QeEdXbVI4a0dGSDN1Q3U4V1YrN3RST3VIS3Rjb1MzRTYwSG5UbXJQY1FlZVlBTHlzV2NYU2g1bVlYMG9tcmNZb0tjSGJQdHUyaVY3TDIxbytUcmNRMDZLMjJRVzNaaFJEUlFZWC9yVkt3bGRJcDE2ZnF5bmhPSHQ1OFZSSjI5aE9iUTJmVEgzT3dYaWV5dFZBTExBbVd5eUxqcnQyS04yc1JpazgzNytwODhpa1NNNXA2M3EzNHVTZWw2ekFCMXZzVzM0OVRLWk1CcXBkaG0xMk9XT3BuOVI3K055WHhyNndnZC91cGdZUC9wckJ4SEl0VWtlOTFsN20wQ0owdkd3U21DMm56TllabUVzQXF1T3dGbU1JSmRhQUZVR2tPLy9mQUZNc0N2ZFFGSkNyZVNYYTBqbGppaEExc0d1VmZWZlpSamVlUDdMcEdyNVJRYWNWTjNiUXVmK0NvakQ0Vm1hMVIvdmxXZ3FJalhHVjMwb2taUE9SK2VMSEVqeTAzOW5kSWpTL2dUYmx6SXpNQWdHZHN0QkIyRHp0aFpZd0QxUFA4Q0Joam1mcmx2SEZ0RS9IY2N0QlVjb0lKUTJuUk5LcVJaQnlQRWwza0JtTUtBd2VPN3dJRTZ1VWVMU1lNckY5WXVYdG5EQUJ1RjNCd2Y2MkRCa3F4NmU0UGlKbnpvMTV1eEpmR1gvMEZIaEIzSHNlOFNaV2J6SmhwWkNaNTF0WGNlUlkvR2pQUE1IQlhNaTZKZ2ZoeWhWSXlkL3FUbmd4UW5XUHg4R3J3eHBZQ2hWdWdFRDNQUnowd0ZURk5oS2JKQnRhT2Y4NldOQU1HQVRPUmNDVllmVTk5Q3ZTTE5DMlc5L09DNm0ydGMvbmNVU0t4RnllZDQzMkdMWEdMQTN4L1hpTVUyWHVRZkNRU2krRDVGdlM4VjdYSDBONW9STGlzUHExZlhoVU5GVlRIeGRyMm0wYUJ6MGxTWnJTZVp0ekI4RHhDMWpGMUFHejhqN1k4Ty9rQzZDdXppb0YyTk85cVFwOHgvL0JjeHdRNW51MFk4RDVreGpmVnFPUUlkbUZSNXFWUVlmTW5lUG1kYy9LK21aOHRieWwxdzF3UHNJaWJzYUpsS011b3dwc2VCWW5yMFMvZTd3Mno4azhrc3dXdUhkam1WOG5SVEpsT2s3dkVGUEVwWEdBOFR2RWZyeUp6VFdDTUh4ZjgxZVlHSnNUUk9aa0dzdWhqdEk1ejFLS2JlbU0rbkpwY1hBWFpVRGl4Nk40UTRRdmFWZjJvNDFPdWgvbHdzSG8ydnlVOFU0d1RTODFsdVNtcndCNjZvVEpYVkxaalI0OTJxd1lwQmU0R1V5MGtIS0VEUXVadG9haGg5ODRDK3hDOHZwc0pxM2UxRTliNVErMU4xYk8vekl6Q1IyaENRNWw4OWZ2a3pSTjdiUDNWM0M0eTBsZmZxcS8xTVBQVlhWRFRwODUrNXRocWpBRlpoM2RPbm4zN1ZvaUpjSllLMXloNEcrSFNGYWw4TUErbkl1MEQrZTJZbW1ndFdENEdIRnpKYjUxNWszenBQWm5Ldms1aTA3dzlOeUo3OVB1THc1RUM0Yk93THJFaWxjNngydUM1akthbEhsVDQ4dXo5RXUxSjkzRG1uV3NmN3JmQkJMRWljRzNYTWhqOEcrYTc5bkxZeWVvcjdHb0tQaUlzbmtjcEhXdlhlOFZEYWlqNUpnNUxBbFl2NXlHVy9OYWZueEQ1bE9kVFkwdjdscXBQdTFVNTlHMmdCbTE0ZEk3Q2YveXpyR3JXMjAvbkhPY01FcmNIQURsSGFHNDd0dFp1YitiYlkzVG1ET0xONnVIOUszVFM2MThsY2V2bStZMlp6RUxlL1VVQWVqeDdlVEdFOFQvSDYxcWNuaGhxclpRcHhDOFE1TDR3SFJ6SVpqU3ZIZis2VjFLUldnNDBERlZnUTM1QUYyTmptMEh2ekdSWE1ZT3d0WmViSythUEk4R3RMc2prUVZJT2dMNGk1czdmbUFPSXB3dERTWURacUk0dTdhbzNhbzBNUytaSVdIc1c2cFAvbVJFcVlZQWZYZXNFczJOVGJCZDVoM1ZFVnplMEhYMTRTekwyRTlRa2xrWFBWYTdZUXVxUjRCaElPVUNkNlFrYXRRNkJYUXZrZEVOaUhKVXZJSmp1dmhkZjVCZE1BMUtKV3R3eU13RTI2MEh3b3VsN3BSUWoxVWFBUXRzTmZHcHBOS1dlUmxJQ1pYT3Avak1aeEdZZk9nWkg5cFdNQjlYbFdKN2N3Qm52b1pxZ2dQc1MwbHovWU1iUTRDQXhsOWw1TFNOcFpGN2RGWmNycnlqOG5JLzhZakFMaVQ5QXpxNFR4dFdIY3laS1NMamlIY1lia0pBQVpOS1I3bWs0Y0pkUVRSbTJmL1l4enI5U3hNeEVXYVZjeU9QdUxWVXJhcnVoVm51dW5YWWs3TGNobi8rcWxWaHp3cXRSZHp2aHlrZzdLTk5tTWRidHR2cU4xL0drNm15TU1lTGxqZ2xyT0xEWXIvSTJsWS9GTmZiWWNhVG9obkNPMUdtMERhRS9ZZWNIWmsxSThrZk0vV0dFMDBYZXRxeTJpQWYzdlgzUUZuQ0QvY3BIdjFDRFlxR2pEWEN3SU5CcmtpVC80VnFqM2FRb3pnWlQ1Nmo4ZDN1cnQyU3I1M0JJZlNhdkxjeEUvTWJ0UUhoWFVHUmtENVpIdjFXRFdGL28rU1MyR1B0eWNmeVhOSFkxb1BRdFhuSDlYV09hNyt2REZoZHpUdTV1S0c5UUdDMXcvMDFKWnl0NHpDUHlyWEpkQzZnQTlCR2xLcjF6c0ppa3kyQm0yUnJJbHRsRnB3bWd4N211Wk5oM3B4bURYanZpazhvNE1qZktvYUs4L3dGdThxdG9WUUhQdnQwbjV3SVF0SlFDRU9HQ1BuRUxaYVBQYy9SUStxT3IrVExGcGNvMGxqYWxQUGdQQ3F1SllWZkhzYjBWaHplSWNqQWlXbWVYdTdWNlNxSTZHTGJ4aDBBdWFiVzhEemorMmtlQTZIYVdQMVNxNUdHU0lrTk8yQU5CNHFzc3U0WXlKNFdScHlPUERVU0pYSjgwQUgxZEJqdEZBTmVFSnNiR2theUtUT3YyaXNCTVV4ZzZFWVJ2UnEzQzVIeHpmV2RrWkJvWlcycW83dEFVSFJ6SVVJdGZ2Yzd1bjdvUm9HemFmbmZnTnNMVURoRndnRlQralFLSUxFNE5ldklPMFoxd2ViK0hKREZ2eHIrZW8vTjBKWnl3MndCNExtNDBUVGQ2eDlFb2cyNnFzT0NVNndjOEpqNm9tMDhwWEpESzdjQTJmdlRJWDZPUmMrb3BMSVY1QjB6KzA1SVFaeGx4S1EyOXVFb1ppd3FVOVowemJvVmJJc21HUlA1c3pEd25VT1k5RXBha1hFeTBNTWtjQjlaVThnc2dTQlRKYnVZb2Z2c0JHV2NYVXdYTFJOV3RyL3V2SVpsZ284VC9UMk5CbzlqTUMwVDZ4QU4zc2Y0TDduUWpXcTliR0ZqL3V6OVJVK3c4NFZDelZicmFJUzdEQm9WL2hkcVZaL2dyTkIxRGZpYzI2SzFwVjFkWjdDeUhDMHhaQUlPTURWUGpIakV5VkNlRHVwNVc2WFc3Rmx5TWk4MzJOY2IxM1c2dWFqL1FsZnB5N1BwdVNkaWZGRnBjT2tVM2I2YVZOQUFBK3h3UURnYStVUEM4NWdFZStsR1F0cFgrWXZjbHkvSDg5dU45dmxZbUdYanFuNC9GNGh2UHVLcjNOamxteGpucm56ZE1NOVM4Q2tyZDdMT1NLY1BPWVVkT3VUVGVENlpIZ1BiSTh5OTZ6OWdiK1FmMmcvTG9MZllCbWszMWpSNG9GMHdwbXprbEJ1TkxCZEprS3lPQjYrdERYSVFtWjRGSU9mRlE2dHlRblRWemJTeEhmcE9IUUk0SUxyVmxQV0ZhZGRrNHZ2WmJzSlZhQWpFT1RaOWlhOU16V1hGamx0VmI5dXA3TTFEeUdDMkc2TXM4WFY5VnFNQlZYUW13Q3JoZUhwODZXMzFJQUgrZEtJS0tTY3hXOE05bVQ4N25ZZ3FxK3BoYzBGWkRkdGViRTdONVpvQnNPRzkyRW9zZXRjdW1GWGlnVU9xalRodmcxUVhvL05iN0ZFY2dDT2FscExteWVZMERIcVVVb1lwSjJNV0VLK0IvOUJWT3ZIN2VLSDdpTWhxVUtsZnNCbThtbFl1QjIzMzVqTHg3dWcrR3ZscEFOQzhMUnJGVTRHa3lGcjhLTVp6R0RxMkROSHVyb2FMSjhGdXhEeGc0SEhDMWxLbjZOUTgxVkQxek9CZXlISjcwQXROdlk1eDFSUlRQUDdxNWhvdDJzOFNEbml6VlNqbmVKSU5JZUpnL0dvbFZQNk9WNWppZkw2eTVWeXhsZHhSZTJ2MGNRaENiajF5ZnpZK1pTYk5Qb0V1ZlhMdkVqaW83M0d0UEVpeStiTEJYaHdhNWgybUhlb2lJcmpwTHJQNHZZZVNKNTY0UWVBQUsxRjl5VTRHQi9FQWVLQklPRk54SDY3OUZhT3p6cW5hWnhLUDU3MDhIRUUyZjF5VmdFdXBpRlRjMm5XbUJwandLNGhIQjVsSCsrOFl4aWljYWoreERzV05mQXk3aXMxb1c3UUdtWDU5QXZBbmZncFFteWZxYjNOajlLS3V2V3ZqRjFpYm9Kc28rVGV6RWdQeGhQQ0dpKytMRkJxT3laSjhxekNKSHgvYVRjV215RXNib3hydTEvQThHZzI2S2MyNXpaRFhUVjl3OEhkZE5LbWVNUk50WEtQSG40VjlZTlhwZDNNL1U1YTY3Vk5zbmNiMFVYOW5qNmxmbDZUdFZBTGNHcGNWTyszbmNZa0RHeW9EU2djSkpjWGVSM0J5Y09ud08vQW1WbUtDajdTK2lnS00rblhOWnFyVUJOcGlRQVVQWDlCS3JYQ2VTeDFySDBNT0NOZ2YzVDlINUhnTUhVaG40PS5OT2ZRVE5hYzlyZTUxYXo0eGhHZ05UQktmU09wUmxQTXBnRkl3eEczZWttUkluX3prdHFTcjhUVVJoTmROOUNmYTlFUkVkclE2YjhSNWFJa18xRTlUdw=="/><input name="_eventId" value="submit"/></div>
+        </form>
+        <div class="hint">Please use the latest version of Chrome for best experience.</div>
+    </div>
+</div>
+<div id="language" style="display: none">en</div>
+<div id="pac4jUrls" style="display: none">
+    <a href="clientredirect?client_name=mc-qr&amp;service=http://course.buaa.edu.cn/sakai-login-tool/container">mc-qr</a><a href="clientredirect?client_name=mc-wx&amp;service=http://course.buaa.edu.cn/sakai-login-tool/container">mc-wx</a>
+</div>
+<script type="text/javascript">
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+var config = {};
+// 当前语言
+config.locale = $("#language").text();
+// 错误信息
+config.error = $("#errorDiv p").text() || null;
+// 登录目标系统
+var targetServiceName = $("#targetSystem").text() || null;
+var targetServiceDescription = $("#targetSystemDescription").html() || null;
+if (targetServiceName) {
+    config.service = {
+        name: targetServiceName,
+        description: targetServiceDescription,
+        href: getParameterByName('service') || getParameterByName('target') || getParameterByName('TARGET')
+    };
+}
+// 第三方授权登录链接
+var pac4jAs = $("#pac4jUrls a");
+if (pac4jAs.size() > 0) {
+    config.pac4j = [];
+    pac4jAs.each(function(i) {
+        config.pac4j.push({
+            href: pac4jAs[i].href,
+            name: pac4jAs[i].innerText
+        });
+    });
+}
+
+function getPageConfig() {
+    return config;
+}
+
+function doLogin(username, password, type, captcha) {
+    var lginfm = document.getElementById('loginForm');
+    $("#loginForm input[name='username']").val(username);
+    $("#loginForm input[name='password']").val(password);
+    $("#loginForm input[name='type']").val(type);
+    if (captcha) {
+        $("#loginForm input[name='captcha']").val(captcha);
+    }
+    $("#loginForm input[name='submit']").click();
+}
+
+function setLanguage(locale) {
+    var fullURL = window.location.href;
+    if (fullURL.indexOf('locale=zh_cn') !== -1) {
+        window.open(fullURL.replace('locale=zh_cn', 'locale=' + locale), '_self');
+        return;
+    }
+    if (fullURL.indexOf('locale=en') !== -1) {
+        window.open(fullURL.replace('locale=en', 'locale=' + locale), '_self');
+        return;
+    }
+    var baseURL = fullURL.split('?')[0];
+    var params = window.location.search.substring(1);
+    if (params.length > 0) params = '&' + params;
+    window.open(baseURL + '?locale=' + locale + params, '_self');
+}
+
+function ie8() {
+    return navigator.appName === "Microsoft Internet Explorer"
+        && parseInt(navigator.appVersion.split(";")[1].replace(/[ ]/g, "").replace("MSIE", "")) <= 8;
+}
+</script>
+<script type="text/javascript">
+// 手机验证码登录
+config.tokenLogin = {
+    enabled: true
+};
+</script>
+<script type="text/javascript">
+config.mobileCampus = {
+    baseHost: 'app.buaa.edu.cn',
+    security: true,
+    baseUrl: 'https://app.buaa.edu.cn',
+    appid: '200190528091014504',
+    title: '信息北航',
+    autoRedirect: false
+};
+</script>
+<script type="text/javascript" src="/cas/js/init.js"></script>
+</body>
+</html>
