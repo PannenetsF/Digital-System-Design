@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.9.9)  19 NOV 2020 21:15
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.9.9)  20 NOV 2020 20:58
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -890,22 +890,53 @@ File: figure/hw11033.jpg Graphic file (type bmp)
 <figure/hw11033.jpg>
 File: figure/hw11034.jpg Graphic file (type bmp)
 <figure/hw11034.jpg>
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 120.
+File: figure/hw11041.jpg Graphic file (type bmp)
+<figure/hw11041.jpg>
+File: figure/hw11042.jpg Graphic file (type bmp)
+<figure/hw11042.jpg>
+File: figure/hw11043.jpg Graphic file (type bmp)
+<figure/hw11043.jpg>
+File: figure/hw11044.jpg Graphic file (type bmp)
+<figure/hw11044.jpg>
  [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 120.
+File: figure/hw11051.jpg Graphic file (type bmp)
+<figure/hw11051.jpg>
+File: figure/hw11052.jpg Graphic file (type bmp)
+<figure/hw11052.jpg>
+File: figure/hw11053.jpg Graphic file (type bmp)
+<figure/hw11053.jpg>
+File: figure/hw11054.jpg Graphic file (type bmp)
+<figure/hw11054.jpg>
+File: figure/hw11055.jpg Graphic file (type bmp)
+<figure/hw11055.jpg>
+File: figure/hw11056.jpg Graphic file (type bmp)
+<figure/hw11056.jpg>
+File: figure/hw11057.jpg Graphic file (type bmp)
+<figure/hw11057.jpg>
+File: figure/hw11058.jpg Graphic file (type bmp)
+<figure/hw11058.jpg>
+File: figure/hw11059.jpg Graphic file (type bmp)
+<figure/hw11059.jpg>
+File: figure/hw110510.jpg Graphic file (type bmp)
+<figure/hw110510.jpg>
+File: figure/hw110511.jpg Graphic file (type bmp)
+<figure/hw110511.jpg>
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 155.
+ [4]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 155.
  (./homework.week11.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 120.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 120.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 155.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 155.
 Package rerunfilecheck Info: File `homework.week11.out' has not changed.
 (rerunfilecheck)             Checksum: 946B1B609C548714607929F777A0F4E0;494.
  ) 
 Here is how much of TeX's memory you used:
- 22650 strings out of 479682
- 426954 string characters out of 5891585
- 968420 words of memory out of 5000000
- 39517 multiletter control sequences out of 15000+600000
+ 22742 strings out of 479682
+ 428564 string characters out of 5891585
+ 971420 words of memory out of 5000000
+ 39594 multiletter control sequences out of 15000+600000
  574085 words of font info for 94 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  69i,6n,126p,846b,2299s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on homework.week11.pdf (3 pages).
+Output written on homework.week11.pdf (4 pages).

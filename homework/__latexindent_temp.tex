@@ -102,6 +102,18 @@
     \item 显示模块： 将计数器的毫秒、秒、分钟输入到 BCD 编码器，将 BCD 编码器的输出接到七段管
 \end{itemize}
 
+
+
+\begin{figure}
+    \centering
+    \caption{数字时钟结果}\label{04} 
+    % line 1
+    \sfig[0.2]{hw11041.jpg} \hfill 
+    \sfig[0.2]{hw11042.jpg} \hfill
+    \sfig[0.2]{hw11043.jpg} \hfill 
+    \sfig[0.2]{hw11044.jpg} \bigskip 
+\end{figure}
+
 \section{7 段管循环显示}
 
 模块划分：
@@ -116,5 +128,25 @@
 \end{itemize}
 
 将字符串 \lstinline{'HELLO BUAA'} 进行分析，其中不存在 \lstinline{'HELUA'} ，其他的可以从对应关系中导出： \lstinline{0->U, 8->B, ' '->default} ，恰好补全十进制七段管显示的 \lstinline{0xa-0xe} 。
+
+\begin{figure}
+    \centering
+    \caption{循环显示结果}\label{05} 
+    \sfig[0.22]{hw11051.jpg} \hfill 
+    \sfig[0.22]{hw11052.jpg} \hfill 
+    \sfig[0.22]{hw11053.jpg} \hfill 
+    \sfig[0.22]{hw11054.jpg} 
+    
+    \bigskip
+
+    \sfig[0.24]{hw11055.jpg} \hfill 
+    \sfig[0.24]{hw11056.jpg} \hfill 
+    \sfig[0.24]{hw11057.jpg} \hfill 
+    \sfig[0.24]{hw11058.jpg} \bigskip  
+    \sfig[0.24]{hw11059.jpg} \hfill 
+    \sfig[0.24]{hw110510.jpg} \hfill 
+    \sfig[0.24]{hw110511.jpg} \hfill 
+\end{figure}
+
 
 \end{document}

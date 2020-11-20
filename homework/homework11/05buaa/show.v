@@ -25,7 +25,7 @@ assign reset = SW[17];
 
 // the clk of 2Hz
 wire clk_2;
-tiks #(.M(25000000), .BASE(50000000)) u_tik(.CLOCK_50(CLOCK_50), .reset(reset), .tik(clk_2));
+tiks #(.M(1), .BASE(50000000)) u_tik(.CLOCK_50(CLOCK_50), .reset(reset), .tik(clk_2));
 
 
 // cyclic shift register
