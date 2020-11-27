@@ -1,4 +1,4 @@
-// `include "seg.v"
+`include "seg.v"
 
 module seg_4 (
     SW,

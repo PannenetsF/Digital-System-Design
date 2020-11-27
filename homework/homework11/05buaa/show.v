@@ -1,7 +1,7 @@
  `include "param.v"
-// `include "tik.v"
-// `include "shift.v"
-// `include "seg_4.v"
+`include "tik.v"
+`include "shift.v"
+`include "seg_4.v"
 
 module show (
     SW,
