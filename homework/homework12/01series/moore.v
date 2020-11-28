@@ -20,7 +20,7 @@ reg [3:0] status;
 
 assign res = (status == `state10010); 
 
-always @(posedge clk or reset) begin
+always @(posedge clk or posedge reset) begin
     if (reset) begin
         status <= `idle;
     end

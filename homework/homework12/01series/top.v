@@ -1,4 +1,4 @@
-`include "moore.v"
+// `include "moore.v"
 
 module top (
     SW,

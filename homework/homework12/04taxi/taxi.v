@@ -1,7 +1,8 @@
-`include "tik.v"
-`include "bcd.v"
+// `include "tik.v"
+// `include "bcd.v"
+// `include "seg_4.v"
 
-module texi (
+module taxi (
     CLOCK_50,
     SW,
     HEX3,
@@ -44,6 +45,8 @@ bcd u_dist(
     .bcd_one(bcd_dis_1)
 );
 
+seg_4 u_show(.SW({bcd_cost_10, bcd_cost_1, bcd_dis_10, bcd_dis_1}), .HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .HEX3(HEX3));
+
 wire in_0_3, in_3_6, in_6_10, in_10;
 wire [3:0] flag;
 assign in_0_3 = (distance < 3);
@@ -53,11 +56,16 @@ assign in_10 = (distance >= 10);
 assign flag = {in_10, in_6_10, in_3_6, in_0_3};
 
 always @(posedge clk or posedge reset) begin
-    if (reset | !en) begin
+    if (reset) begin
         cost <= 10;
         distance <= 0;
         cnt <= 0;
     end 
+    else if (!en) begin
+        cost <= 10;
+        distance <= 0;
+        cnt <= 0;
+    end
     else begin
         if (cnt == 10) begin
             cnt <= 0;
@@ -76,4 +84,6 @@ always @(posedge clk or posedge reset) begin
     end
 end
     
+
+
 endmodule

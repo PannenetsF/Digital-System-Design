@@ -6,8 +6,7 @@ module cnt_rev #(
     parameter integer y_t = 3,
     parameter integer y_n_t = 3,
     parameter integer l_t = 3,
-    parameter integer init_state = `cnt_green,
-    parameter integer init_time = 3
+    parameter integer init_state = `cnt_green
 )  (
     clk,
     reset,
@@ -23,17 +22,19 @@ output reg [7:0] cnt;
 
 reg [3:0] state;
 
-always @(posedge clk, posedge reset) begin
-    if (reset) begin
+always @(posedge clk or posedge reset) begin
+    if (reset | !en) begin
         cnt <= 0;
-        cnt <= init_time;
+        case (init_state)
+            `cnt_green : cnt <= g_t - 1;
+            `cnt_yellow : cnt <= y_t - 1;
+            `cnt_left : cnt <= l_t - 1;
+            `cnt_yellow_next : cnt <= y_n_t - 1;
+            `cnt_red : cnt <= r_t - 2 - 1;
+            default: cnt <= 0;
+        endcase
         state <= init_state;
-    end 
-	 else if (en==0) begin 
-        cnt <= 0;
-        cnt <= init_time;
-        state <= init_state;		
-	 end
+    end    
     else begin
         if (cnt == 0) begin
             case (state)

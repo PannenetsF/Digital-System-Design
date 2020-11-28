@@ -64,8 +64,7 @@ cnt_rev #(
     .y_n_t(5),
     .g_t(40),
     .l_t(15),
-    .init_state(`cnt_red),
-    .init_time(60-3)
+    .init_state(`cnt_red)
 ) u_cnt_ew(
     .clk(clk),
     .reset(reset),
@@ -79,8 +78,7 @@ cnt_rev #(
     .y_n_t(5),
     .g_t(30),
     .l_t(15),
-    .init_state(`cnt_green),
-    .init_time(30-1)
+    .init_state(`cnt_green)
 ) u_cnt_sn(
     .clk(clk),
     .reset(reset),

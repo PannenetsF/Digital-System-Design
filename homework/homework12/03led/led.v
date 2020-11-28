@@ -1,4 +1,4 @@
-`include "tik.v"
+// `include "tik.v"
 
 module led (
     CLOCK_50,
@@ -32,7 +32,13 @@ assign LEDR = f_0_to_9 | f_9_to_0;
 `define t_3 5 
 
 always @(posedge clk or posedge reset) begin
-    if (reset | !en) begin
+    if (reset) begin
+        f_0_to_9 <= 0;
+        f_9_to_0 <= 0;
+        cnt <= 0;
+        timer <= 0;
+    end
+    else if (!en) begin
         f_0_to_9 <= 0;
         f_9_to_0 <= 0;
         cnt <= 0;

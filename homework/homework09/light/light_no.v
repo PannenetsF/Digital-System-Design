@@ -1,12 +1,22 @@
-// `include "param.v"
-
-module traffic_light(clk, reset, light_ew_rgyl, light_sn_rgyl, on); 
+module traffic_light(clk, reset, light_ew_rgyl, light_sn_rgyl); 
 
 input clk;
 input reset;
 output [3:0] light_ew_rgyl;
 output [3:0] light_sn_rgyl;
-output on;
+
+`define idle 0
+`define pre 11 
+`define ew_green 1
+`define ew_yellow 2
+`define ew_left 3
+`define ew_yellow_next 4
+`define ew_red 5
+`define sn_green 6
+`define sn_yellow 7
+`define sn_left 8
+`define sn_yellow_next 9
+`define sn_red 10
 
 reg [3:0] status;
 
@@ -18,8 +28,6 @@ assign light_sn_rgyl[0] = (status == `sn_left);
 assign light_sn_rgyl[1] = (status == `sn_yellow || status == `sn_yellow_next);
 assign light_sn_rgyl[2] = (status == `sn_green);
 assign light_sn_rgyl[3] = (status != `sn_green) && (status != `sn_yellow) && (status != `sn_yellow_next) && (status != `sn_left);
-
-assign on = (status != `idle);
 
 reg [7:0] cnt;
 
@@ -122,5 +130,6 @@ always @(posedge clk or posedge reset) begin
         endcase
     end
 end
+
 
 endmodule

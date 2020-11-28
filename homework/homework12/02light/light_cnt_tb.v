@@ -4,28 +4,50 @@
 module test (
 );
 
-reg clk, reset, en;
+reg clk, reset;
 wire[3:0] light_ew_rgyl, light_sn_rgyl;
-wire [7:0] cnt;
+wire [7:0] cnt_ew, cnt_sn;
+wire en;
 
 traffic_light u_light(
     .clk(clk),
     .reset(reset),
     .light_ew_rgyl(light_ew_rgyl),
-    .light_sn_rgyl(light_sn_rgyl)
+    .light_sn_rgyl(light_sn_rgyl),
+    .on(en)
 );
 
+
+// ew
 cnt_rev #(
     .r_t(60),
     .y_t(5),
+    .y_n_t(5),
     .g_t(40),
-    .l_t(15)
-) u_cnt(
+    .l_t(15),
+    .init_state(`cnt_red),
+    .init_time(60-3)
+) u_cnt_ew(
     .clk(clk),
     .reset(reset),
     .en(en),
-    .light_rgyl(light_ew_rgyl),
-    .cnt(cnt)
+    .cnt(cnt_ew)
+);
+
+// sn
+cnt_rev #(
+    .r_t(70),
+    .y_t(5),
+    .y_n_t(5),
+    .g_t(30),
+    .l_t(15),
+    .init_state(`cnt_green),
+    .init_time(30-1)
+) u_cnt_sn(
+    .clk(clk),
+    .reset(reset),
+    .en(en),
+    .cnt(cnt_sn)
 );
 
 always #1 clk = ~clk;
