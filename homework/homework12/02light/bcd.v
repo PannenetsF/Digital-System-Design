@@ -1,11 +1,11 @@
-module bcd # (parameter integer BW = 4) (
+module bcd (
     bin,
     bcd_hun,
     bcd_ten,
     bcd_one
 );
 
-input [BW-1:0] bin;
+input [7:0] bin;
 output [3:0] bcd_hun;
 output [3:0] bcd_ten;
 output [3:0] bcd_one;
@@ -14,7 +14,7 @@ assign bcd_hun = bcd_hun_r;
 assign bcd_ten = bcd_ten_r;
 assign bcd_one = bcd_one_r;
 
-reg [9:0] bin_r;
+reg [7:0] bin_r;
 reg [3:0] bcd_hun_r;
 reg [3:0] bcd_ten_r;
 reg [3:0] bcd_one_r;
@@ -23,7 +23,7 @@ integer i;
 
 always @(bin) begin
     init_all;
-    for (i = 0; i < BW; i = i + 1) begin
+    for (i = 0; i < 8; i = i + 1) begin
         check_all;
         shift_all;
     end

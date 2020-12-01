@@ -1,0 +1,47 @@
+\documentclass[lang=cn,11pt,a4paper,cite=authoryear]{elegantpaper}
+
+\input{needed.tex}
+
+\title{数字电路高层次综合设计\quad 第十三周作业}
+\author{范云潜 18373486}
+\institute{微电子学院 184111 班}
+\date{\zhtoday}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{序列检测}
+
+本任务的功能模块已经在前序课程中完成，因此只需要进行实例化即可。将 \lstinline{clk} 绑定到按键上，将 \lstinline{reset} 和 \lstinline{push} 绑定到开关，将输出绑定到 LED 灯。
+
+\section{交通信号灯}
+
+时钟需要进行分频，调用之前的分频器模块，产生 5 Hz 的信号。
+
+由于前序课程中的交通信号灯未曾预留倒计时的接口，因此需要进行一定修改。首先，在复位后，存在一定的缓冲时间，此时将对应的状态 \lstinline{idle} 作为信号 \lstinline{!on} 输出到倒计时模块。
+
+倒计时模块按照实例化时的时间设定和初始状态设定进行工作，在接受到 \lstinline{on} 后和灯的闪烁保持同步。
+
+对于倒计时模块输出的倒计时信号，需要通过 BCD 编码后将十位与各位输出到数码管显示模块。
+
+\section{流水灯}
+
+将控制信号绑定到开关与按键后，将时钟绑定到分频器。关于流水灯的流水效果，可以通过 MASK 和移位操作便捷的完成：\lstinline{LED = MASK1 | MASK2}
+
+\begin{enumerate}
+    \item \lstinline{MASK1 = 1000 0000 , MASK2 = 0 } 对 \lstinline{MASK1} 进行右移位
+    \item \lstinline{MASK1 = 1000 0000 , MASK2 = 0100 0000 } 对 \lstinline{MASK1, MASK2} 进行右移位
+    \item \lstinline{MASK1 = 1000 0000 , MASK2 = 0000 0001 } 对 \lstinline{MASK1, MASK2} 进行反向移位
+\end{enumerate}
+
+\section{计价器}
+
+将时钟绑定到分频器，控制信号绑定到开关。核心是计数的转移，在进行计数的同时进行状态的转移，不同的状态每个公里数增加的金额是不一致的即可。之后将计数和里程通过 BCD 编码后输出到数码管模块。
+% Start Here
+
+% End Here
+
+\end{document}

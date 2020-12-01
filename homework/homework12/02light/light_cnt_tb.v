@@ -1,5 +1,6 @@
 `include "cnt_rev.v"
 `include "light.v"
+`include "bcd.v"
 
 module test (
 );
@@ -49,6 +50,16 @@ cnt_rev #(
     .en(en),
     .cnt(cnt_sn)
 );
+
+
+
+wire [3:0] bcd_ew_10, bcd_ew_1, bcd_sn_10, bcd_sn_1;
+
+// assign LEDR[14:11] = light_ew_rgyl;
+// assign LEDR[10:7] = light_sn_rgyl;
+
+bcd u_bcd_ew(.bin(cnt_ew), .bcd_ten(bcd_ew_10), .bcd_one(bcd_ew_1));
+bcd u_bcd_sn(.bin(cnt_sn), .bcd_ten(bcd_sn_10), .bcd_one(bcd_sn_1));
 
 always #1 clk = ~clk;
 

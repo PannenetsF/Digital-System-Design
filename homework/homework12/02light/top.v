@@ -3,6 +3,7 @@
 // `include "bcd.v"
 // `include "seg_4.v"
 // `include "param.v"
+// `include "tik.v"
 
 
 module top (
@@ -24,14 +25,19 @@ input [17:17] SW;
 output [14:7] LEDR;
 output [6:0] HEX5, HEX4, HEX1, HEX0;
 
-
 /* 
  * clock and reset
  */
 
 wire clk, reset;
-assign clk = CLOCK_50;
+// assign clk = CLOCK_50;
 assign reset = SW[17];
+tiks #(4, 50000000) u_clk(
+    CLOCK_50, 
+    reset,
+    clk
+);
+
 
 
 /* 
@@ -98,8 +104,8 @@ wire [3:0] bcd_ew_10, bcd_ew_1, bcd_sn_10, bcd_sn_1;
 assign LEDR[14:11] = light_ew_rgyl;
 assign LEDR[10:7] = light_sn_rgyl;
 
-bcd #(8) u_bcd_ew(.bin(cnt_ew), .bcd_ten(bcd_ew_10), .bcd_one(bcd_ew_1));
-bcd #(8) u_bcd_sn(.bin(cnt_sn), .bcd_ten(bcd_sn_10), .bcd_one(bcd_sn_1));
+bcd u_bcd_ew(.bin(cnt_ew), .bcd_ten(bcd_ew_10), .bcd_one(bcd_ew_1));
+bcd u_bcd_sn(.bin(cnt_sn), .bcd_ten(bcd_sn_10), .bcd_one(bcd_sn_1));
 
 seg_4 u_seg(
     .SW({bcd_ew_10, bcd_ew_1, bcd_sn_10, bcd_sn_1}),
