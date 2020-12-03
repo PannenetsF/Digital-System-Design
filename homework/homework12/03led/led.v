@@ -1,4 +1,4 @@
-`include "tik.v"
+// `include "tik.v"
 // `include "sync.v"
 
 
@@ -15,7 +15,7 @@ input [17:16] SW;
 output [9:0] LEDR;
 
 wire clk, reset, en, push;
-assign push = KEY[2];
+assign push = !KEY[2];
 assign reset = SW[17];
 assign en = SW[16];
 tiks #(.M(5), .BASE(50000000)) u_tik(

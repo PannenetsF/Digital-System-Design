@@ -1,4 +1,0 @@
-\contentsline {section}{\numberline {1}序列检测}{1}{section.1}%
-\contentsline {section}{\numberline {2}交通信号灯}{1}{section.2}%
-\contentsline {section}{\numberline {3}流水灯}{1}{section.3}%
-\contentsline {section}{\numberline {4}计价器}{2}{section.4}%
