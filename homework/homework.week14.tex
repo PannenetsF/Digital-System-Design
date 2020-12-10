@@ -29,7 +29,7 @@
 
 \begin{itemize}
     \item 分频器 \lstinline{tiks} 
-    \item 基于模式选择的多路选择器 \lstinline{mux_display}，用于将不同模块的信号输入到显示模块中，
+    \item 基于模式选择的多路选择器 \lstinline{display_choose}，用于将不同模块的信号输入到显示模块中，
     \item 显示模块 \lstinline{display_time} ，将之前的七段管显示 \lstinline{hex} 与 BCD 编码 \lstinline{bcd}合并在一起，对输入的时间进行显示
 \end{itemize} 
 
@@ -42,6 +42,31 @@
 \subsection{时钟模块}
 
 在除去复位（ reset ） 以及置位（ set ）外，本模块需要一直进行计时，这样的目的是为闹钟提供参考时间，并且符合电子表的使用常识。
+
+状态机仅有\textbf{工作}与\textbf{设置}两个状态，在设置时，时间直接转到控制模块给出的需要设定的时间。
+
+
+\subsection{闹钟模块}
+
+状态机仅有\textbf{工作}与\textbf{设置}两个状态，在设置时，时间直接转到控制模块给出的需要设定的时间。
+
+在\textbf{工作}状态时，当设定时间到达，将输出的控制信号设定为\textbf{响铃}，直到外部按下关闭闹铃键。
+
+\subsection{秒表模块}
+
+状态机只有\textbf{暂停}与\textbf{工作}两个状态。
+
+\subsection{时间显示模块}
+
+将 BCD 编码与七段管显示合并在一起，显示只需要给出时分秒各位数据即可。
+
+\subsection{闹钟显示模块}
+
+闹钟响铃以一位的数码管显示，响铃时产生动态效果。
+
+\subsection{显示选择器}
+
+用于选择各个功能模块的显示输出以及设置时的临时显示。
 
 
 % Start Here
