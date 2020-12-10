@@ -5,12 +5,12 @@ module display_alarm (
     HEX
 );
 
-input clk, reset, mod, en;
+input clk, reset, en;
 output reg [6:0] HEX;
 
 always @(posedge clk or posedge reset) begin
     if (reset) begin
-        HEX <= 0;
+        HEX <= 1;
     end
     else if (!en) begin
         HEX <= 1;

@@ -30,9 +30,6 @@ always @(posedge clk or posedge reset) begin
         {out_h, out_m, out_s} <= 0;
         status <= `stopwatch_pause;
     end
-    else if (!en) begin
-        {out_h, out_m, out_s} <= {out_h, out_m, out_s};
-    end
     else begin
         if (set) begin
             status <= `stopwatch_pause;
