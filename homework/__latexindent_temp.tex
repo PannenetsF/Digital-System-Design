@@ -29,7 +29,7 @@
 
 \begin{itemize}
     \item 分频器 \lstinline{tiks} 
-    \item 基于模式选择的多路选择器 \lstinline{mux_display}，用于将不同模块的信号输入到显示模块中，
+    \item 基于模式选择的多路选择器 \lstinline{display_choose}，用于将不同模块的信号输入到显示模块中，
     \item 显示模块 \lstinline{display_time} ，将之前的七段管显示 \lstinline{hex} 与 BCD 编码 \lstinline{bcd}合并在一起，对输入的时间进行显示
 \end{itemize} 
 
@@ -37,11 +37,140 @@
 
 \section{模块设计}
 
-为了降低模块的复杂度，将所有的设置的控制部分转移到控制模块，各个功能模块仅采用控制模块给出的数值即可。
+为了降低模块的复杂度，将所有的设置的控制部分转移到控制模块，各个功能模块仅采用控制模块给出的数值即可。各个功能模块中进行设置之前需要进行使能。整体模块的调用如 \figref{01} 。接下来的叙述中，只有功能与控制模块给出了端口定义。
+
+\qfig[01]{1401.png}{模块层次图}
+
+\subsection{主控制模块}
+
+主控制模块的主要功能是对外部输出一个电子时钟应该输出的所有信号： 时间信息、闹钟开始，以及接收必要的控制信号：模式控制、位选择、加减调节、关闭闹钟。
+
+其内部实例化了三个主要的功能模块，并根据目前电子时钟工作的状态对各个模块的输出进行选择，最终输出整体的信号。为了控制这些功能模块，还需要将外部的控制信号进行逻辑设计，以期合理控制各个功能的正常转换与运行。
+
+\begin{lstlisting}[caption={主控制模块端口定义}]
+module ctrl #(
+    parameter integer max_h = 12,
+    parameter integer max_m = 23,
+    parameter integer max_s = 41
+) 
+(
+    clk,
+    reset,
+    en,
+    alarm_on,
+    alarming,
+    mod_choose,
+    bit_choose,
+    val_add,
+    val_sub,
+    val_set,
+    clear,
+    out_h,
+    out_m,
+    out_s,
+    led
+);
+\end{lstlisting}
 
 \subsection{时钟模块}
 
 在除去复位（ reset ） 以及置位（ set ）外，本模块需要一直进行计时，这样的目的是为闹钟提供参考时间，并且符合电子表的使用常识。
+
+状态机仅有\textbf{工作}与\textbf{设置}两个状态，在设置时，时间直接转到控制模块给出的需要设定的时间。
+
+\begin{lstlisting}[caption={时钟模块端口定义}]
+module clock_hms #(
+    parameter integer max_h = 12,
+    parameter integer max_m = 23,
+    parameter integer max_s = 41
+) 
+(
+    clk,
+    reset,
+    en,
+    set,
+    set_h,
+    set_m,
+    set_s,
+    out_h,
+    out_m,
+    out_s,
+);
+
+input clk, reset, en, set;
+input [5:0] set_h, set_m, set_s;
+output reg [5:0] out_h, out_m, out_s;
+\end{lstlisting}
+    
+    
+\subsection{闹钟模块}
+
+状态机有\textbf{工作}与\textbf{设置}两个状态，在设置时，时间直接转到控制模块给出的需要设定的时间。
+
+在\textbf{工作}状态时，闹钟比对当前时钟与设定时间，将输出的控制信号设定为\textbf{响铃}，直到外部按下关闭闹铃键。并且我们合理的设置，可以关闭闹钟功能，此时闹钟在到达预订时间时不会“响”起。
+
+
+\begin{lstlisting}[caption={闹钟模块端口定义}]
+module alarm (
+    clk,
+    reset,
+    set,
+    en,
+    alarming,
+    clear,
+    set_h,
+    set_m,
+    set_s,
+    hms_h,
+    hms_m,
+    hms_s,
+    saved_h, 
+    saved_m, 
+    saved_s
+);
+
+input clk, reset, set, en, clear;
+input [5:0] hms_h, hms_m, hms_s;
+input [5:0] set_h, set_m, set_s;
+output alarm_on;
+output reg alarming;
+output reg [5:0] saved_h, saved_m, saved_s;
+\end{lstlisting}
+    
+\subsection{秒表模块}
+
+状态机只有\textbf{暂停}与\textbf{工作}两个状态，但是秒表需要工作在后台，并且有\textbf{归零}、\textbf{暂停/继续}两个按键，就如同每一块电子表一样。
+
+
+\begin{lstlisting}[caption={闹钟模块端口定义}]
+module stopwatch #(
+    parameter integer max_h = 12,
+    parameter integer max_m = 23,
+    parameter integer max_s = 41
+) 
+(
+    clk,
+    reset,
+    en,
+    set,
+    pause_resume,
+    out_h,
+    out_m,
+    out_s
+);
+\end{lstlisting}
+
+\subsection{时间显示模块}
+
+将 BCD 编码与七段管显示合并在一起，显示只需要给出时分秒各位数据即可。
+
+\subsection{闹钟显示模块}
+
+闹钟响铃以一位的数码管显示，响铃时产生动态效果。
+
+\subsection{显示选择器}
+
+用于选择各个功能模块的显示输出以及设置时的临时显示。这样一来，显示部分就不会影响各个模块的输出逻辑。
 
 
 % Start Here

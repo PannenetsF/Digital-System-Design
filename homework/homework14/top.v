@@ -1,8 +1,8 @@
-`include "ctrl.v"
-`include "tik.v"
-`include "display_time.v"
-`include "display_alarm.v"
-
+// `include "ctrl.v"
+// `include "tik.v"
+// `include "display_time.v"
+// `include "display_alarm.v"
+`include "param.v"
 
 `ifdef DEBUG
 `define FREQ 25000000

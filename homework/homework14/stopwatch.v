@@ -1,4 +1,4 @@
-`include "param.v"
+// `include "param.v"
 
 module stopwatch #(
     parameter integer max_h = 12,

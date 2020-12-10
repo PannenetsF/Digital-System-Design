@@ -1,4 +1,4 @@
-`include "param.v"
+// `include "param.v"
 
 module clock_hms #(
     parameter integer max_h = 12,

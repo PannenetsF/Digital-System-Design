@@ -1,5 +1,5 @@
-`include "bcd.v"
-`include "dec.v"
+// `include "bcd.v"
+// `include "dec.v"
 
 module display_time (
     clk,

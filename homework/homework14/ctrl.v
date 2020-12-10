@@ -1,8 +1,8 @@
-`include "clock_hms.v"
-`include "stopwatch.v"
-`include "alarm.v"
-`include "display_choose.v"
-`include "show_bit.v"
+// `include "clock_hms.v"
+// `include "stopwatch.v"
+// `include "alarm.v"
+// `include "display_choose.v"
+// `include "show_bit.v"
 
 module ctrl #(
     parameter integer max_h = 12,
@@ -178,7 +178,6 @@ always @(posedge clk or posedge reset) begin
         alarm_loaded <= 0;
         alarm_set <= 0;
         status <= `ctrl_set_start;
-        bit_now <= 0;
     end
     else if (!en) begin
         {temp_h, temp_m, temp_s} <= 0;

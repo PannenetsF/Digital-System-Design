@@ -1,4 +1,4 @@
-`include "param.v"
+// `include "param.v"
 
 module alarm (
     clk,
@@ -6,6 +6,7 @@ module alarm (
     set,
     en,
     alarming,
+    alarm_on,
     clear,
     set_h,
     set_m,
