@@ -81,7 +81,9 @@ ctrl #(.max_h(max_h), .max_m(max_m), .max_s(max_s))
         .out_h(out_h),
         .out_m(out_m),
         .out_s(out_s),
-        .led(led)
+        .led(led),
+        .debug_bit_now(LEDR[3]),
+        .debug_mod_now(LEDR[2:1])
     );
 
 /*
@@ -120,5 +122,7 @@ display_alarm u_alarming (
     .en(alarming),
     .HEX(HEX1)
 );
+
+
 
 endmodule

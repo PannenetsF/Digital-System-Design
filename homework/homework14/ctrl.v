@@ -24,7 +24,9 @@ module ctrl #(
     out_h,
     out_m,
     out_s,
-    led
+    led,
+    debug_bit_now,
+    debug_mod_now
 );
 
 input clk, reset, en, mod_choose, bit_choose, val_add, val_sub, val_set, clear;
@@ -32,6 +34,11 @@ input clk, reset, en, mod_choose, bit_choose, val_add, val_sub, val_set, clear;
 output [5:0] out_h, out_m, out_s;
 output [3:0] led;
 output alarming, alarm_on;
+
+output debug_bit_now;
+output [1:0] debug_mod_now;
+assign debug_bit_now = bit_now;
+assign debug_mod_now = mod_now;
 
 assign alarm_on = en;
 
